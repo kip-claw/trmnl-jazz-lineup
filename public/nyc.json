@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-17T15:11:26.790Z",
+  "generated_at": "2026-07-17T15:17:38.853Z",
   "source": {
     "name": "Jazz Lineup",
     "url": "https://jazzlineup.com/",
@@ -18,6 +18,7 @@
       "sets": [
         "00:00"
       ],
+      "venue_id": "shrine",
       "venue": "Shrine World Music Venue",
       "neighborhood": "Harlem",
       "event_url": "https://shrinenyc.com/calendar.php",
@@ -30,6 +31,7 @@
         "00:15",
         "23:00"
       ],
+      "venue_id": "django",
       "venue": "The Django",
       "neighborhood": "Tribeca",
       "event_url": "https://www.thedjangonyc.com/events/david-hazeltine-15/?selected_date=2026-07-17",
@@ -41,6 +43,7 @@
       "sets": [
         "14:00"
       ],
+      "venue_id": "jazzcultural",
       "venue": "Jazz Cultural Theater",
       "neighborhood": "West Village",
       "event_url": "https://www.smallslive.com/events/33189-afternoon-jam-in-the-cafe/",
@@ -52,6 +55,7 @@
       "sets": [
         "14:00"
       ],
+      "venue_id": "smalls",
       "venue": "Smalls Jazz Club",
       "neighborhood": "West Village",
       "event_url": "https://www.smallslive.com/events/33305-smalls-afternoon-jam-session-hosted-by-carol-morgan/",
@@ -65,6 +69,7 @@
         "19:00",
         "20:30"
       ],
+      "venue_id": "zincbar",
       "venue": "Zinc Bar",
       "neighborhood": "Greenwich Village",
       "event_url": "https://www.zincbar.com/event/mingus-dynasty-16/",
@@ -76,6 +81,7 @@
       "sets": [
         "17:30"
       ],
+      "venue_id": "birdland",
       "venue": "Birdland",
       "neighborhood": "Theater District",
       "event_url": "https://www.birdlandjazz.com/tm-event/birdland-big-band-16/",
@@ -87,6 +93,7 @@
       "sets": [
         "17:30"
       ],
+      "venue_id": "barbes",
       "venue": "Barbès",
       "neighborhood": "Park Slope",
       "event_url": "https://www.viewcy.com/event/oscar_noriegas_crook_214",
@@ -98,6 +105,7 @@
       "sets": [
         "17:30"
       ],
+      "venue_id": "barbayeux",
       "venue": "Bar Bayeux",
       "neighborhood": "Prospect-Lefferts",
       "event_url": "https://www.barbayeux.com/jazz/2ll2kabgl8lbdpc-9ywdc-txjfp-nwfb5-s885d",
@@ -110,6 +118,7 @@
         "18:00",
         "19:30"
       ],
+      "venue_id": "mezzrow",
       "venue": "Mezzrow",
       "neighborhood": "West Village",
       "event_url": "https://www.smallslive.com/events/33049-jim-ridl-trio/",
@@ -122,6 +131,7 @@
         "18:00",
         "19:30"
       ],
+      "venue_id": "smalls",
       "venue": "Smalls Jazz Club",
       "neighborhood": "West Village",
       "event_url": "https://www.smallslive.com/events/32984-yuhan-su-quartet/",
@@ -135,6 +145,7 @@
         "20:30",
         "22:00"
       ],
+      "venue_id": "smoke",
       "venue": "Smoke Jazz Club",
       "neighborhood": "Upper West Side",
       "event_url": "https://tickets.smokejazz.com/shows/11747/?date=2026-07-17",
@@ -146,6 +157,7 @@
       "sets": [
         "18:30"
       ],
+      "venue_id": "ornithology",
       "venue": "Ornithology Jazz Club",
       "neighborhood": "Bushwick",
       "event_url": "https://ornithologyjazzclub.com/brooklyn-bushwick-williamsburg-ornithology-jazz-club-events",
@@ -158,6 +170,7 @@
         "19:00",
         "21:00"
       ],
+      "venue_id": "jazzcultural",
       "venue": "Jazz Cultural Theater",
       "neighborhood": "West Village",
       "event_url": "https://www.smallslive.com/events/33566-geoffrey-keezer-friends/",
@@ -170,6 +183,7 @@
         "19:00",
         "21:00"
       ],
+      "venue_id": "jazzgallery",
       "venue": "The Jazz Gallery",
       "neighborhood": "NoMad",
       "event_url": "https://jazzgallery.org/calendar/tyler-bullock-jul-17-2026",
@@ -182,6 +196,7 @@
         "19:00",
         "21:00"
       ],
+      "venue_id": "dizzys",
       "venue": "Dizzy's Club",
       "neighborhood": "Columbus Circle",
       "event_url": "https://ticketing.jazz.org/21136/",
@@ -193,6 +208,7 @@
       "sets": [
         "19:00"
       ],
+      "venue_id": "nublu",
       "venue": "Nublu 151",
       "neighborhood": "Alphabet City",
       "event_url": "https://posh.vip/e/emily-rose-burnett",
@@ -204,6 +220,7 @@
       "sets": [
         "19:00"
       ],
+      "venue_id": "cellardog",
       "venue": "Cellar Dog",
       "neighborhood": "West Village",
       "event_url": "https://www.cellardog.net/calendar-link/rm5dljc8e4lb8zcpjpajp3ys4bnnrf",
@@ -215,6 +232,7 @@
       "sets": [
         "19:00"
       ],
+      "venue_id": "arthurs",
       "venue": "Arthur's Tavern",
       "neighborhood": "West Village",
       "event_url": "https://www.arthurstavernnyc.com/performances.html",
@@ -227,6 +245,7 @@
         "19:00",
         "21:00"
       ],
+      "venue_id": "pocket",
       "venue": "The Pocket",
       "neighborhood": "Theater District",
       "event_url": "https://thepocketnyc.com/event/george-coleman/",
@@ -239,6 +258,7 @@
         "19:00",
         "21:30"
       ],
+      "venue_id": "billsplace",
       "venue": "Bill's Place",
       "neighborhood": "Harlem",
       "event_url": "https://billsplaceharlem.com/products/bill-saxton-the-harlem-all-stars",
@@ -250,6 +270,7 @@
       "sets": [
         "19:00"
       ],
+      "venue_id": "silvana",
       "venue": "Silvana",
       "neighborhood": "Harlem",
       "event_url": "https://silvana-nyc.com/calendar.php",
@@ -262,6 +283,7 @@
         "19:30",
         "21:15"
       ],
+      "venue_id": "django",
       "venue": "The Django",
       "neighborhood": "Tribeca",
       "event_url": "https://www.thedjangonyc.com/events/jason-tiemann-43/?selected_date=2026-07-17",
@@ -273,6 +295,7 @@
       "sets": [
         "19:30"
       ],
+      "venue_id": "ornithologycafe",
       "venue": "Ornithology Cafe",
       "neighborhood": "Bushwick",
       "event_url": "https://cafeornithology.com/brooklyn-bushwick-williamsburg-cafe-ornithology-events",
@@ -285,6 +308,7 @@
         "20:00",
         "22:00"
       ],
+      "venue_id": "vanguard",
       "venue": "Village Vanguard",
       "neighborhood": "West Village",
       "event_url": "https://vv.squadup.com/artists/ben-wendel",
@@ -297,6 +321,7 @@
         "20:00",
         "22:30"
       ],
+      "venue_id": "bluenote",
       "venue": "Blue Note",
       "neighborhood": "Greenwich Village",
       "event_url": "https://www.bluenotejazz.com/nyc/tm-event/ms-lisa-fischer/",
@@ -309,6 +334,7 @@
         "20:00",
         "22:00"
       ],
+      "venue_id": "closeup",
       "venue": "Close Up",
       "neighborhood": "Lower East Side",
       "event_url": "https://www.viewcy.com/event/vinnie_sperrazza__st",
@@ -320,6 +346,7 @@
       "sets": [
         "20:00"
       ],
+      "venue_id": "barbes",
       "venue": "Barbès",
       "neighborhood": "Park Slope",
       "event_url": "https://www.viewcy.com/event/aurora_nealands_mono_2",
@@ -332,6 +359,7 @@
         "20:00",
         "21:30"
       ],
+      "venue_id": "barbayeux",
       "venue": "Bar Bayeux",
       "neighborhood": "Prospect-Lefferts",
       "event_url": "https://www.barbayeux.com/jazz/bsg4lz3rhzc3egx-mfjnz-47sjb-4e67s-xt5a5-6bjcx-cbrpj-e2s8z-ajbg8-ctpzs-c8mfg-727m7-zdpbx-42jss-xlx9x-zhw76-lns7p",
@@ -343,6 +371,7 @@
       "sets": [
         "20:00"
       ],
+      "venue_id": "silvana",
       "venue": "Silvana",
       "neighborhood": "Harlem",
       "event_url": "https://silvana-nyc.com/calendar.php",
@@ -355,6 +384,7 @@
         "21:00",
         "22:30"
       ],
+      "venue_id": "mezzrow",
       "venue": "Mezzrow",
       "neighborhood": "West Village",
       "event_url": "https://www.smallslive.com/events/32982-cameron-campbell-on-air-band/",
@@ -367,6 +397,7 @@
         "21:00",
         "22:30"
       ],
+      "venue_id": "smalls",
       "venue": "Smalls Jazz Club",
       "neighborhood": "West Village",
       "event_url": "https://www.smallslive.com/events/32986-dave-schumacher-cubeye/",
@@ -379,6 +410,7 @@
         "21:00",
         "22:15"
       ],
+      "venue_id": "lunatico",
       "venue": "Bar LunÀtico",
       "neighborhood": "Bed-Stuy",
       "event_url": "https://www.barlunatico.com/calendar/2022/8/10/cali-mambo-feat-dred-scott-tom-beckham-amp-moses-patrou-skd8l-gyfzz-bg69f-947dn-6zdbc-bpenp-w3djb",
@@ -390,6 +422,7 @@
       "sets": [
         "21:00"
       ],
+      "venue_id": "ornithology",
       "venue": "Ornithology Jazz Club",
       "neighborhood": "Bushwick",
       "event_url": "https://ornithologyjazzclub.com/brooklyn-bushwick-williamsburg-ornithology-jazz-club-events",
@@ -401,6 +434,7 @@
       "sets": [
         "21:00"
       ],
+      "venue_id": "shrine",
       "venue": "Shrine World Music Venue",
       "neighborhood": "Harlem",
       "event_url": "https://shrinenyc.com/calendar.php",
@@ -412,6 +446,7 @@
       "sets": [
         "21:30"
       ],
+      "venue_id": "birdland",
       "venue": "Birdland",
       "neighborhood": "Theater District",
       "event_url": "https://www.birdlandjazz.com/tm-event/allan-harris-band-2/",
@@ -423,6 +458,7 @@
       "sets": [
         "22:00"
       ],
+      "venue_id": "arthurs",
       "venue": "Arthur's Tavern",
       "neighborhood": "West Village",
       "event_url": "https://www.arthurstavernnyc.com/performances.html",
@@ -434,6 +470,7 @@
       "sets": [
         "22:00"
       ],
+      "venue_id": "arthurs",
       "venue": "Arthur's Tavern",
       "neighborhood": "West Village",
       "event_url": "https://www.arthurstavernnyc.com/performances.html",
@@ -445,6 +482,7 @@
       "sets": [
         "22:00"
       ],
+      "venue_id": "arthurs",
       "venue": "Arthur's Tavern",
       "neighborhood": "West Village",
       "event_url": "https://www.arthurstavernnyc.com/performances.html",
@@ -456,6 +494,7 @@
       "sets": [
         "22:00"
       ],
+      "venue_id": "barbes",
       "venue": "Barbès",
       "neighborhood": "Park Slope",
       "event_url": "https://www.viewcy.com/event/zemog_el_gallo_bueno_17",
@@ -467,6 +506,7 @@
       "sets": [
         "22:00"
       ],
+      "venue_id": "silvana",
       "venue": "Silvana",
       "neighborhood": "Harlem",
       "event_url": "https://silvana-nyc.com/calendar.php",
@@ -478,6 +518,7 @@
       "sets": [
         "22:30"
       ],
+      "venue_id": "jazzcultural",
       "venue": "Jazz Cultural Theater",
       "neighborhood": "West Village",
       "event_url": "https://www.smallslive.com/events/33446-anthony-wonsey-quintet/",
@@ -489,6 +530,7 @@
       "sets": [
         "22:30"
       ],
+      "venue_id": "birdland",
       "venue": "Birdland",
       "neighborhood": "Theater District",
       "event_url": "https://www.birdlandjazz.com/tm-event/stella-cole-6/",
@@ -500,6 +542,7 @@
       "sets": [
         "22:30"
       ],
+      "venue_id": "nublu",
       "venue": "Nublu 151",
       "neighborhood": "Alphabet City",
       "event_url": "https://posh.vip/e/la-derbi-world-cup-final",
@@ -511,6 +554,7 @@
       "sets": [
         "23:00"
       ],
+      "venue_id": "ornithologycafe",
       "venue": "Ornithology Cafe",
       "neighborhood": "Bushwick",
       "event_url": "https://cafeornithology.com/brooklyn-bushwick-williamsburg-cafe-ornithology-events",
@@ -522,6 +566,7 @@
       "sets": [
         "23:30"
       ],
+      "venue_id": "cellardog",
       "venue": "Cellar Dog",
       "neighborhood": "West Village",
       "event_url": "https://www.cellardog.net/calendar-link/tzah6tb9rdk77jnfc7w9pr5at7sbh3",
@@ -533,6 +578,7 @@
       "sets": [
         "23:30"
       ],
+      "venue_id": "closeup",
       "venue": "Close Up",
       "neighborhood": "Lower East Side",
       "event_url": "https://www.viewcy.com/event/alfredo_colon__set_a",
@@ -544,6 +590,7 @@
       "sets": [
         "23:55"
       ],
+      "venue_id": "mezzrow",
       "venue": "Mezzrow",
       "neighborhood": "West Village",
       "event_url": "https://www.smallslive.com/events/33227-round-midnight-solo-piano-with-isaac-byrd/",
@@ -555,6 +602,7 @@
       "sets": [
         "23:55"
       ],
+      "venue_id": "smalls",
       "venue": "Smalls Jazz Club",
       "neighborhood": "West Village",
       "event_url": "https://www.smallslive.com/events/33079-chris-beck-quartet/",
@@ -566,6 +614,7 @@
       "sets": [
         "00:00"
       ],
+      "venue_id": "shrine",
       "venue": "Shrine World Music Venue",
       "neighborhood": "Harlem",
       "event_url": "https://shrinenyc.com/calendar.php",
@@ -577,6 +626,7 @@
       "sets": [
         "00:00"
       ],
+      "venue_id": "shrine",
       "venue": "Shrine World Music Venue",
       "neighborhood": "Harlem",
       "event_url": "https://shrinenyc.com/calendar.php",
@@ -589,6 +639,7 @@
         "00:15",
         "23:00"
       ],
+      "venue_id": "django",
       "venue": "The Django",
       "neighborhood": "Tribeca",
       "event_url": "https://www.thedjangonyc.com/events/craig-handy-2nd-line-smith-32/?selected_date=2026-07-18",
@@ -600,6 +651,7 @@
       "sets": [
         "14:00"
       ],
+      "venue_id": "jazzcultural",
       "venue": "Jazz Cultural Theater",
       "neighborhood": "West Village",
       "event_url": "https://www.smallslive.com/events/33190-afternoon-jam-in-the-cafe/",
@@ -611,6 +663,7 @@
       "sets": [
         "14:00"
       ],
+      "venue_id": "smalls",
       "venue": "Smalls Jazz Club",
       "neighborhood": "West Village",
       "event_url": "https://www.smallslive.com/events/33311-smalls-afternoon-jam-session-hosted-by-steve-nelson/",
@@ -622,6 +675,7 @@
       "sets": [
         "15:00"
       ],
+      "venue_id": "barbes",
       "venue": "Barbès",
       "neighborhood": "Park Slope",
       "event_url": "https://www.viewcy.com/event/dirty_desmonds_25",
@@ -633,6 +687,7 @@
       "sets": [
         "17:30"
       ],
+      "venue_id": "birdland",
       "venue": "Birdland",
       "neighborhood": "Theater District",
       "event_url": "https://www.birdlandjazz.com/tm-event/danny-tobias-quartet-3/",
@@ -645,6 +700,7 @@
         "18:00",
         "19:30"
       ],
+      "venue_id": "mezzrow",
       "venue": "Mezzrow",
       "neighborhood": "West Village",
       "event_url": "https://www.smallslive.com/events/33050-jim-ridl-trio/",
@@ -657,6 +713,7 @@
         "18:00",
         "19:30"
       ],
+      "venue_id": "smalls",
       "venue": "Smalls Jazz Club",
       "neighborhood": "West Village",
       "event_url": "https://www.smallslive.com/events/32985-yuhan-su-quartet/",
@@ -668,6 +725,7 @@
       "sets": [
         "18:00"
       ],
+      "venue_id": "barbes",
       "venue": "Barbès",
       "neighborhood": "Park Slope",
       "event_url": "https://www.viewcy.com/event/jeremiah_lockwood_sa_2",
@@ -679,6 +737,7 @@
       "sets": [
         "18:00"
       ],
+      "venue_id": "barbayeux",
       "venue": "Bar Bayeux",
       "neighborhood": "Prospect-Lefferts",
       "event_url": "https://www.barbayeux.com/jazz/8e4wna6hz4bknew-w5dtz-l5j9e-a95je-3553z-tcey6-talh4-gchk3-bjks2-gxazp-kprek-6h6dy-7elm6-h3tgp-m6ft5",
@@ -692,6 +751,7 @@
         "20:30",
         "22:00"
       ],
+      "venue_id": "smoke",
       "venue": "Smoke Jazz Club",
       "neighborhood": "Upper West Side",
       "event_url": "https://tickets.smokejazz.com/shows/11747/?date=2026-07-18",
@@ -703,6 +763,7 @@
       "sets": [
         "18:30"
       ],
+      "venue_id": "ornithology",
       "venue": "Ornithology Jazz Club",
       "neighborhood": "Bushwick",
       "event_url": "https://ornithologyjazzclub.com/brooklyn-bushwick-williamsburg-ornithology-jazz-club-events",
@@ -715,6 +776,7 @@
         "19:00",
         "21:00"
       ],
+      "venue_id": "jazzcultural",
       "venue": "Jazz Cultural Theater",
       "neighborhood": "West Village",
       "event_url": "https://www.smallslive.com/events/33111-geoffrey-keezer-friends/",
@@ -727,6 +789,7 @@
         "19:00",
         "21:00"
       ],
+      "venue_id": "jazzgallery",
       "venue": "The Jazz Gallery",
       "neighborhood": "NoMad",
       "event_url": "https://jazzgallery.org/calendar/alexandra-ridout-quartet-jul-18-2026",
@@ -739,6 +802,7 @@
         "19:00",
         "21:00"
       ],
+      "venue_id": "dizzys",
       "venue": "Dizzy's Club",
       "neighborhood": "Columbus Circle",
       "event_url": "https://ticketing.jazz.org/21136/",
@@ -750,6 +814,7 @@
       "sets": [
         "19:00"
       ],
+      "venue_id": "nublu",
       "venue": "Nublu 151",
       "neighborhood": "Alphabet City",
       "event_url": "https://posh.vip/e/drinkabir-meltykyss-bus-boy-abbatya",
@@ -761,6 +826,7 @@
       "sets": [
         "19:00"
       ],
+      "venue_id": "cellardog",
       "venue": "Cellar Dog",
       "neighborhood": "West Village",
       "event_url": "https://www.cellardog.net/calendar-link/hendrik-meurkens-quartet",
@@ -772,6 +838,7 @@
       "sets": [
         "19:00"
       ],
+      "venue_id": "arthurs",
       "venue": "Arthur's Tavern",
       "neighborhood": "West Village",
       "event_url": "https://www.arthurstavernnyc.com/performances.html",
@@ -784,6 +851,7 @@
         "19:00",
         "21:00"
       ],
+      "venue_id": "pocket",
       "venue": "The Pocket",
       "neighborhood": "Theater District",
       "event_url": "https://thepocketnyc.com/event/george-coleman/",
@@ -796,6 +864,7 @@
         "19:00",
         "21:30"
       ],
+      "venue_id": "billsplace",
       "venue": "Bill's Place",
       "neighborhood": "Harlem",
       "event_url": "https://billsplaceharlem.com/products/bill-saxton-the-harlem-all-stars",
@@ -808,6 +877,7 @@
         "19:30",
         "21:15"
       ],
+      "venue_id": "django",
       "venue": "The Django",
       "neighborhood": "Tribeca",
       "event_url": "https://www.thedjangonyc.com/events/danny-jonokuchi-8/?selected_date=2026-07-18",
@@ -819,6 +889,7 @@
       "sets": [
         "19:30"
       ],
+      "venue_id": "ornithologycafe",
       "venue": "Ornithology Cafe",
       "neighborhood": "Bushwick",
       "event_url": "https://cafeornithology.com/brooklyn-bushwick-williamsburg-cafe-ornithology-events",
@@ -831,6 +902,7 @@
         "20:00",
         "22:00"
       ],
+      "venue_id": "vanguard",
       "venue": "Village Vanguard",
       "neighborhood": "West Village",
       "event_url": "https://vv.squadup.com/artists/ben-wendel",

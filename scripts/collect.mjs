@@ -36,6 +36,7 @@ export function buildFeed(source, now = new Date()) {
         title: event.title,
         date: event.date,
         sets: Array.isArray(event.sets) ? event.sets : [],
+        venue_id: club.id,
         venue: club.name,
         neighborhood: club.neighborhood ?? null,
         event_url: event.url,

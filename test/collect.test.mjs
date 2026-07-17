@@ -19,6 +19,7 @@ test("buildFeed keeps only upcoming events with known venues and sorts by set ti
   assert.equal(feed.city, "New York City");
   assert.deepEqual(feed.events.map((event) => event.title), ["Early Set", "Later Set", "Tomorrow"]);
   assert.equal(feed.events[0].venue, "Example Club");
+  assert.equal(feed.events[0].venue_id, "club");
   assert.equal(feed.events[0].price, "$20");
 });
 
