@@ -13,6 +13,6 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - name: Fetch the deployed feed, allowing for Pages propagation
         run: curl --fail --silent --show-error --retry 8 --retry-all-errors --retry-delay 15 https://kip-claw.github.io/trmnl-jazz-lineup/nyc.json | node scripts/validate-feed.mjs -
