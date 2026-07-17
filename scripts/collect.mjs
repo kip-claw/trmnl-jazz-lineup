@@ -3,7 +3,7 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 
 export const SOURCE_URL = "https://jazzlineup.com/events-nyc.json";
-export const MAX_EVENTS = 24;
+export const MAX_FUTURE_EVENTS = 24;
 
 export function nycDate(now = new Date()) {
   return new Intl.DateTimeFormat("en-CA", {
@@ -21,10 +21,15 @@ export function buildFeed(source, now = new Date()) {
 
   const clubById = new Map(source.clubs.map((club) => [club.id, club]));
   const today = nycDate(now);
-  const events = source.events
+  const upcoming = source.events
     .filter((event) => event.date >= today && clubById.has(event.clubId))
-    .sort((a, b) => `${a.date} ${a.sets?.[0] ?? "99:99"}`.localeCompare(`${b.date} ${b.sets?.[0] ?? "99:99"}`))
-    .slice(0, MAX_EVENTS)
+    .sort((a, b) => `${a.date} ${a.sets?.[0] ?? "99:99"}`.localeCompare(`${b.date} ${b.sets?.[0] ?? "99:99"}`));
+  // The screen promises today's complete listing. Future shows are a small
+  // convenience preview, rather than an archive or calendar mirror.
+  const events = [
+    ...upcoming.filter((event) => event.date === today),
+    ...upcoming.filter((event) => event.date > today).slice(0, MAX_FUTURE_EVENTS)
+  ]
     .map((event) => {
       const club = clubById.get(event.clubId);
       return {

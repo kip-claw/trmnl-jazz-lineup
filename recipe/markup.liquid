@@ -1,34 +1,32 @@
 <div class="layout layout--col gap--space-between">
-  <div>
-    <div class="flex flex--row flex--align-center gap--small">
-      <span class="title title--small">NYC JAZZ</span>
-      <span class="label label--small label--inverted">{{ today | date: "%a, %b %-d" }}</span>
-    </div>
+  {% assign tonight = events | where: "date", today %}
 
-    {% assign tonight = events | where: "date", today | slice: 0, 5 %}
-    {% if tonight.size > 0 %}
-      <div class="mt--small">
-        {% for event in tonight %}
-          <div class="flex flex--row flex--align-center gap--small mb--1">
-            <div class="label label--small" style="width: 54px">
-              {{ event.sets.first | default: "TBA" }}
-            </div>
-            <div style="flex: 1">
-              <div class="title title--small title--primary">{{ event.title }}</div>
-              <div class="description">{{ event.venue }}{% if event.neighborhood %} · {{ event.neighborhood }}{% endif %}</div>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    {% else %}
-      <div class="center-center" style="height: 260px">
-        <div>
-          <div class="title">No listed sets tonight</div>
-          <div class="description">Check Jazz Lineup for changes.</div>
-        </div>
-      </div>
-    {% endif %}
+  <div class="flex flex--row flex--align-center gap--small">
+    <span class="title title--small">NYC JAZZ TONIGHT</span>
+    <span class="label label--small label--inverted">{{ tonight.size }} SHOWS</span>
+    <span class="description description--small">{{ today | date: "%A, %b %-d" }}</span>
   </div>
 
-  <div class="description description--small">Data: Jazz Lineup · Updated {{ generated_at | date: "%l:%M %p" }}</div>
+  {% if tonight.size > 0 %}
+    <div class="grid grid--cols-3 gap--small" style="grid-auto-flow: row; align-content: start;">
+      {% for event in tonight %}
+        <div class="item" style="min-width: 0; padding-bottom: 5px;">
+          <div class="flex flex--row flex--align-center gap--xsmall">
+            <span class="label label--small" style="width: 38px; flex: none;">{{ event.sets.first | default: "TBA" }}</span>
+            <span class="description description--small" style="font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ event.title }}</span>
+          </div>
+          <div class="description description--small" style="padding-left: 42px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ event.venue }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="center-center" style="height: 260px">
+      <div>
+        <div class="title">No listed sets tonight</div>
+        <div class="description">Check Jazz Lineup for changes.</div>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="description description--small">Complete listing for today · Data: Jazz Lineup · Updated {{ generated_at | date: "%l:%M %p" }}</div>
 </div>

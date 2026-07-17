@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-17T15:01:52.554Z",
+  "generated_at": "2026-07-17T15:11:26.790Z",
   "source": {
     "name": "Jazz Lineup",
     "url": "https://jazzlineup.com/",
@@ -281,6 +281,552 @@
     {
       "title": "Ben Wendel",
       "date": "2026-07-17",
+      "sets": [
+        "20:00",
+        "22:00"
+      ],
+      "venue": "Village Vanguard",
+      "neighborhood": "West Village",
+      "event_url": "https://vv.squadup.com/artists/ben-wendel",
+      "price": null
+    },
+    {
+      "title": "Ms. Lisa Fischer ft. Orrin Evans Trio with James Genus and Mark Whitfield, Jr.",
+      "date": "2026-07-17",
+      "sets": [
+        "20:00",
+        "22:30"
+      ],
+      "venue": "Blue Note",
+      "neighborhood": "Greenwich Village",
+      "event_url": "https://www.bluenotejazz.com/nyc/tm-event/ms-lisa-fischer/",
+      "price": null
+    },
+    {
+      "title": "VINNIE SPERRAZZA - Steve Nelson - Jacob Sacks - Dave Ambrosio",
+      "date": "2026-07-17",
+      "sets": [
+        "20:00",
+        "22:00"
+      ],
+      "venue": "Close Up",
+      "neighborhood": "Lower East Side",
+      "event_url": "https://www.viewcy.com/event/vinnie_sperrazza__st",
+      "price": null
+    },
+    {
+      "title": "AURORA NEALAND's MONOCLE",
+      "date": "2026-07-17",
+      "sets": [
+        "20:00"
+      ],
+      "venue": "Barbès",
+      "neighborhood": "Park Slope",
+      "event_url": "https://www.viewcy.com/event/aurora_nealands_mono_2",
+      "price": null
+    },
+    {
+      "title": "Jerome Sabbagh",
+      "date": "2026-07-17",
+      "sets": [
+        "20:00",
+        "21:30"
+      ],
+      "venue": "Bar Bayeux",
+      "neighborhood": "Prospect-Lefferts",
+      "event_url": "https://www.barbayeux.com/jazz/bsg4lz3rhzc3egx-mfjnz-47sjb-4e67s-xt5a5-6bjcx-cbrpj-e2s8z-ajbg8-ctpzs-c8mfg-727m7-zdpbx-42jss-xlx9x-zhw76-lns7p",
+      "price": null
+    },
+    {
+      "title": "The Dirts",
+      "date": "2026-07-17",
+      "sets": [
+        "20:00"
+      ],
+      "venue": "Silvana",
+      "neighborhood": "Harlem",
+      "event_url": "https://silvana-nyc.com/calendar.php",
+      "price": null
+    },
+    {
+      "title": "Cameron Campbell ON AIR! Band",
+      "date": "2026-07-17",
+      "sets": [
+        "21:00",
+        "22:30"
+      ],
+      "venue": "Mezzrow",
+      "neighborhood": "West Village",
+      "event_url": "https://www.smallslive.com/events/32982-cameron-campbell-on-air-band/",
+      "price": null
+    },
+    {
+      "title": "Dave Schumacher & Cubeye",
+      "date": "2026-07-17",
+      "sets": [
+        "21:00",
+        "22:30"
+      ],
+      "venue": "Smalls Jazz Club",
+      "neighborhood": "West Village",
+      "event_url": "https://www.smallslive.com/events/32986-dave-schumacher-cubeye/",
+      "price": null
+    },
+    {
+      "title": "Cali Mambo: Tom Beckham | Manuel Varela | Dred Scott | Diego Voglino",
+      "date": "2026-07-17",
+      "sets": [
+        "21:00",
+        "22:15"
+      ],
+      "venue": "Bar LunÀtico",
+      "neighborhood": "Bed-Stuy",
+      "event_url": "https://www.barlunatico.com/calendar/2022/8/10/cali-mambo-feat-dred-scott-tom-beckham-amp-moses-patrou-skd8l-gyfzz-bg69f-947dn-6zdbc-bpenp-w3djb",
+      "price": null
+    },
+    {
+      "title": "Jazz Dialogue",
+      "date": "2026-07-17",
+      "sets": [
+        "21:00"
+      ],
+      "venue": "Ornithology Jazz Club",
+      "neighborhood": "Bushwick",
+      "event_url": "https://ornithologyjazzclub.com/brooklyn-bushwick-williamsburg-ornithology-jazz-club-events",
+      "price": null
+    },
+    {
+      "title": "Hudson River",
+      "date": "2026-07-17",
+      "sets": [
+        "21:00"
+      ],
+      "venue": "Shrine World Music Venue",
+      "neighborhood": "Harlem",
+      "event_url": "https://shrinenyc.com/calendar.php",
+      "price": null
+    },
+    {
+      "title": "Allan Harris: Harlem After Dark featuring Maya Azucena & AC Lincoln (Theater)",
+      "date": "2026-07-17",
+      "sets": [
+        "21:30"
+      ],
+      "venue": "Birdland",
+      "neighborhood": "Theater District",
+      "event_url": "https://www.birdlandjazz.com/tm-event/allan-harris-band-2/",
+      "price": null
+    },
+    {
+      "title": "Bobby Harden",
+      "date": "2026-07-17",
+      "sets": [
+        "22:00"
+      ],
+      "venue": "Arthur's Tavern",
+      "neighborhood": "West Village",
+      "event_url": "https://www.arthurstavernnyc.com/performances.html",
+      "price": null
+    },
+    {
+      "title": "E.J. Sharpe with Off the Hook",
+      "date": "2026-07-17",
+      "sets": [
+        "22:00"
+      ],
+      "venue": "Arthur's Tavern",
+      "neighborhood": "West Village",
+      "event_url": "https://www.arthurstavernnyc.com/performances.html",
+      "price": null
+    },
+    {
+      "title": "Stew Cutler & Friends",
+      "date": "2026-07-17",
+      "sets": [
+        "22:00"
+      ],
+      "venue": "Arthur's Tavern",
+      "neighborhood": "West Village",
+      "event_url": "https://www.arthurstavernnyc.com/performances.html",
+      "price": null
+    },
+    {
+      "title": "ZEMOG El GALLO BUENO",
+      "date": "2026-07-17",
+      "sets": [
+        "22:00"
+      ],
+      "venue": "Barbès",
+      "neighborhood": "Park Slope",
+      "event_url": "https://www.viewcy.com/event/zemog_el_gallo_bueno_17",
+      "price": null
+    },
+    {
+      "title": "Dafina Roots",
+      "date": "2026-07-17",
+      "sets": [
+        "22:00"
+      ],
+      "venue": "Silvana",
+      "neighborhood": "Harlem",
+      "event_url": "https://silvana-nyc.com/calendar.php",
+      "price": null
+    },
+    {
+      "title": "Anthony Wonsey Quintet",
+      "date": "2026-07-17",
+      "sets": [
+        "22:30"
+      ],
+      "venue": "Jazz Cultural Theater",
+      "neighborhood": "West Village",
+      "event_url": "https://www.smallslive.com/events/33446-anthony-wonsey-quintet/",
+      "price": null
+    },
+    {
+      "title": "Stella Cole",
+      "date": "2026-07-17",
+      "sets": [
+        "22:30"
+      ],
+      "venue": "Birdland",
+      "neighborhood": "Theater District",
+      "event_url": "https://www.birdlandjazz.com/tm-event/stella-cole-6/",
+      "price": null
+    },
+    {
+      "title": "LA Derbi \"Worl Cup Final\" CHRIS MOORE - NOTA - DJ STIF & FRIENDS",
+      "date": "2026-07-17",
+      "sets": [
+        "22:30"
+      ],
+      "venue": "Nublu 151",
+      "neighborhood": "Alphabet City",
+      "event_url": "https://posh.vip/e/la-derbi-world-cup-final",
+      "price": null
+    },
+    {
+      "title": "Late Night Jam Hosted By Gervis Myles",
+      "date": "2026-07-17",
+      "sets": [
+        "23:00"
+      ],
+      "venue": "Ornithology Cafe",
+      "neighborhood": "Bushwick",
+      "event_url": "https://cafeornithology.com/brooklyn-bushwick-williamsburg-cafe-ornithology-events",
+      "price": null
+    },
+    {
+      "title": "Jinjoo Yoo Quartet",
+      "date": "2026-07-17",
+      "sets": [
+        "23:30"
+      ],
+      "venue": "Cellar Dog",
+      "neighborhood": "West Village",
+      "event_url": "https://www.cellardog.net/calendar-link/tzah6tb9rdk77jnfc7w9pr5at7sbh3",
+      "price": null
+    },
+    {
+      "title": "ALFREDO COLON - Amy Azzara - Ryan Easter - Jonathan Paik - Steve Williams - Marcelo Camacho - Set and Session",
+      "date": "2026-07-17",
+      "sets": [
+        "23:30"
+      ],
+      "venue": "Close Up",
+      "neighborhood": "Lower East Side",
+      "event_url": "https://www.viewcy.com/event/alfredo_colon__set_a",
+      "price": null
+    },
+    {
+      "title": "Round Midnight Solo Piano with Isaac Byrd",
+      "date": "2026-07-17",
+      "sets": [
+        "23:55"
+      ],
+      "venue": "Mezzrow",
+      "neighborhood": "West Village",
+      "event_url": "https://www.smallslive.com/events/33227-round-midnight-solo-piano-with-isaac-byrd/",
+      "price": null
+    },
+    {
+      "title": "Chris Beck Quartet",
+      "date": "2026-07-17",
+      "sets": [
+        "23:55"
+      ],
+      "venue": "Smalls Jazz Club",
+      "neighborhood": "West Village",
+      "event_url": "https://www.smallslive.com/events/33079-chris-beck-quartet/",
+      "price": null
+    },
+    {
+      "title": "Dj Birane",
+      "date": "2026-07-18",
+      "sets": [
+        "00:00"
+      ],
+      "venue": "Shrine World Music Venue",
+      "neighborhood": "Harlem",
+      "event_url": "https://shrinenyc.com/calendar.php",
+      "price": null
+    },
+    {
+      "title": "DJ Millie Bass",
+      "date": "2026-07-18",
+      "sets": [
+        "00:00"
+      ],
+      "venue": "Shrine World Music Venue",
+      "neighborhood": "Harlem",
+      "event_url": "https://shrinenyc.com/calendar.php",
+      "price": null
+    },
+    {
+      "title": "Craig Handy and 2nd Line Smith",
+      "date": "2026-07-18",
+      "sets": [
+        "00:15",
+        "23:00"
+      ],
+      "venue": "The Django",
+      "neighborhood": "Tribeca",
+      "event_url": "https://www.thedjangonyc.com/events/craig-handy-2nd-line-smith-32/?selected_date=2026-07-18",
+      "price": null
+    },
+    {
+      "title": "Afternoon Jam in the Cafe",
+      "date": "2026-07-18",
+      "sets": [
+        "14:00"
+      ],
+      "venue": "Jazz Cultural Theater",
+      "neighborhood": "West Village",
+      "event_url": "https://www.smallslive.com/events/33190-afternoon-jam-in-the-cafe/",
+      "price": null
+    },
+    {
+      "title": "Smalls Afternoon Jam Session Hosted by Steve Nelson",
+      "date": "2026-07-18",
+      "sets": [
+        "14:00"
+      ],
+      "venue": "Smalls Jazz Club",
+      "neighborhood": "West Village",
+      "event_url": "https://www.smallslive.com/events/33311-smalls-afternoon-jam-session-hosted-by-steve-nelson/",
+      "price": null
+    },
+    {
+      "title": "DIRTY DESMONDS",
+      "date": "2026-07-18",
+      "sets": [
+        "15:00"
+      ],
+      "venue": "Barbès",
+      "neighborhood": "Park Slope",
+      "event_url": "https://www.viewcy.com/event/dirty_desmonds_25",
+      "price": null
+    },
+    {
+      "title": "Danny Tobias Quartet",
+      "date": "2026-07-18",
+      "sets": [
+        "17:30"
+      ],
+      "venue": "Birdland",
+      "neighborhood": "Theater District",
+      "event_url": "https://www.birdlandjazz.com/tm-event/danny-tobias-quartet-3/",
+      "price": null
+    },
+    {
+      "title": "Jim Ridl Trio",
+      "date": "2026-07-18",
+      "sets": [
+        "18:00",
+        "19:30"
+      ],
+      "venue": "Mezzrow",
+      "neighborhood": "West Village",
+      "event_url": "https://www.smallslive.com/events/33050-jim-ridl-trio/",
+      "price": null
+    },
+    {
+      "title": "Yuhan Su Quartet",
+      "date": "2026-07-18",
+      "sets": [
+        "18:00",
+        "19:30"
+      ],
+      "venue": "Smalls Jazz Club",
+      "neighborhood": "West Village",
+      "event_url": "https://www.smallslive.com/events/32985-yuhan-su-quartet/",
+      "price": null
+    },
+    {
+      "title": "JEREMIAH LOCKWOOD: Saturdays in July",
+      "date": "2026-07-18",
+      "sets": [
+        "18:00"
+      ],
+      "venue": "Barbès",
+      "neighborhood": "Park Slope",
+      "event_url": "https://www.viewcy.com/event/jeremiah_lockwood_sa_2",
+      "price": null
+    },
+    {
+      "title": "Duet Set(s) w/Leo Genovese and Adam Kolker",
+      "date": "2026-07-18",
+      "sets": [
+        "18:00"
+      ],
+      "venue": "Bar Bayeux",
+      "neighborhood": "Prospect-Lefferts",
+      "event_url": "https://www.barbayeux.com/jazz/8e4wna6hz4bknew-w5dtz-l5j9e-a95je-3553z-tcey6-talh4-gchk3-bjks2-gxazp-kprek-6h6dy-7elm6-h3tgp-m6ft5",
+      "price": null
+    },
+    {
+      "title": "Jane Monheit Sings the Cole Porter Songbook",
+      "date": "2026-07-18",
+      "sets": [
+        "18:30",
+        "20:30",
+        "22:00"
+      ],
+      "venue": "Smoke Jazz Club",
+      "neighborhood": "Upper West Side",
+      "event_url": "https://tickets.smokejazz.com/shows/11747/?date=2026-07-18",
+      "price": "$25-65"
+    },
+    {
+      "title": "Earlybird Show",
+      "date": "2026-07-18",
+      "sets": [
+        "18:30"
+      ],
+      "venue": "Ornithology Jazz Club",
+      "neighborhood": "Bushwick",
+      "event_url": "https://ornithologyjazzclub.com/brooklyn-bushwick-williamsburg-ornithology-jazz-club-events",
+      "price": null
+    },
+    {
+      "title": "Geoffrey Keezer & Friends",
+      "date": "2026-07-18",
+      "sets": [
+        "19:00",
+        "21:00"
+      ],
+      "venue": "Jazz Cultural Theater",
+      "neighborhood": "West Village",
+      "event_url": "https://www.smallslive.com/events/33111-geoffrey-keezer-friends/",
+      "price": null
+    },
+    {
+      "title": "Alexandra Ridout Quartet",
+      "date": "2026-07-18",
+      "sets": [
+        "19:00",
+        "21:00"
+      ],
+      "venue": "The Jazz Gallery",
+      "neighborhood": "NoMad",
+      "event_url": "https://jazzgallery.org/calendar/alexandra-ridout-quartet-jul-18-2026",
+      "price": null
+    },
+    {
+      "title": "Charles McPherson Quintet",
+      "date": "2026-07-18",
+      "sets": [
+        "19:00",
+        "21:00"
+      ],
+      "venue": "Dizzy's Club",
+      "neighborhood": "Columbus Circle",
+      "event_url": "https://ticketing.jazz.org/21136/",
+      "price": null
+    },
+    {
+      "title": "Drinkabir, Meltykyss, Bus Boy, Abbatya",
+      "date": "2026-07-18",
+      "sets": [
+        "19:00"
+      ],
+      "venue": "Nublu 151",
+      "neighborhood": "Alphabet City",
+      "event_url": "https://posh.vip/e/drinkabir-meltykyss-bus-boy-abbatya",
+      "price": null
+    },
+    {
+      "title": "Hendrik Meurkens Quartet",
+      "date": "2026-07-18",
+      "sets": [
+        "19:00"
+      ],
+      "venue": "Cellar Dog",
+      "neighborhood": "West Village",
+      "event_url": "https://www.cellardog.net/calendar-link/hendrik-meurkens-quartet",
+      "price": null
+    },
+    {
+      "title": "Eri Yamamoto Jazz Trio",
+      "date": "2026-07-18",
+      "sets": [
+        "19:00"
+      ],
+      "venue": "Arthur's Tavern",
+      "neighborhood": "West Village",
+      "event_url": "https://www.arthurstavernnyc.com/performances.html",
+      "price": null
+    },
+    {
+      "title": "George Coleman",
+      "date": "2026-07-18",
+      "sets": [
+        "19:00",
+        "21:00"
+      ],
+      "venue": "The Pocket",
+      "neighborhood": "Theater District",
+      "event_url": "https://thepocketnyc.com/event/george-coleman/",
+      "price": null
+    },
+    {
+      "title": "Bill Saxton & the Harlem All-Stars",
+      "date": "2026-07-18",
+      "sets": [
+        "19:00",
+        "21:30"
+      ],
+      "venue": "Bill's Place",
+      "neighborhood": "Harlem",
+      "event_url": "https://billsplaceharlem.com/products/bill-saxton-the-harlem-all-stars",
+      "price": null
+    },
+    {
+      "title": "Danny Jonokuchi Quintet",
+      "date": "2026-07-18",
+      "sets": [
+        "19:30",
+        "21:15"
+      ],
+      "venue": "The Django",
+      "neighborhood": "Tribeca",
+      "event_url": "https://www.thedjangonyc.com/events/danny-jonokuchi-8/?selected_date=2026-07-18",
+      "price": null
+    },
+    {
+      "title": "Nadav Remez Quartet",
+      "date": "2026-07-18",
+      "sets": [
+        "19:30"
+      ],
+      "venue": "Ornithology Cafe",
+      "neighborhood": "Bushwick",
+      "event_url": "https://cafeornithology.com/brooklyn-bushwick-williamsburg-cafe-ornithology-events",
+      "price": null
+    },
+    {
+      "title": "Ben Wendel",
+      "date": "2026-07-18",
       "sets": [
         "20:00",
         "22:00"
