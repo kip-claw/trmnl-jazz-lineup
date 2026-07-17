@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { buildFeed } from "../scripts/collect.mjs";
+import { validateFeed } from "../scripts/validate-feed.mjs";
 
 const source = {
   generatedAt: "2026-07-17T12:00:00Z",
@@ -38,4 +39,15 @@ test("buildFeed never truncates the current day's listing", () => {
 test("buildFeed excludes malformed events instead of publishing them", () => {
   const feed = buildFeed({ ...source, events: [{ clubId: "club", title: "Bad time", date: "2026-07-17", sets: ["later"], url: "https://example.test/bad" }] }, new Date("2026-07-17T14:00:00Z"));
   assert.equal(feed.events.length, 0);
+});
+
+test("buildFeed output satisfies the published v1 feed contract", () => {
+  const feed = buildFeed(source, new Date("2026-07-17T14:00:00Z"));
+  assert.deepEqual(validateFeed(feed), []);
+});
+
+test("feed contract rejects an event with an unsafe URL", () => {
+  const feed = buildFeed(source, new Date("2026-07-17T14:00:00Z"));
+  feed.events[0].event_url = "http://example.test/not-secure";
+  assert.match(validateFeed(feed).join("\n"), /event_url must be an HTTPS URL/);
 });

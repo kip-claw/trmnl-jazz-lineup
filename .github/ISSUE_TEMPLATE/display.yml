@@ -1,0 +1,27 @@
+name: TRMNL display problem
+description: Report clipping, legibility, filtering, or stale-data display issues.
+title: "display: "
+labels: ["display"]
+body:
+  - type: dropdown
+    id: device
+    attributes:
+      label: TRMNL device
+      options:
+        - 7.5-inch
+        - 6-inch
+        - 4-inch
+        - Browser preview only
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include the date, selected favorite venues, and a non-personal screenshot if possible.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true

@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "collect": "node scripts/collect.mjs",
+    "validate:feed": "node scripts/validate-feed.mjs public/nyc.json",
     "verify:venues": "node scripts/verify-venues.mjs",
     "test": "node --test"
   },

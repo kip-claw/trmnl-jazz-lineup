@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kip-claw.github.io/trmnl-jazz-lineup/schema/nyc-feed.schema.json",
+  "title": "TRMNL Jazz Lineup NYC feed",
+  "description": "A small, attributed feed for the current NYC jazz schedule and a limited upcoming preview.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generated_at", "stale_after_epoch", "source", "city", "timezone", "today", "events"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "stale_after_epoch": { "type": "integer", "minimum": 0 },
+    "city": { "const": "New York City" },
+    "timezone": { "const": "America/New_York" },
+    "today": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url", "feed_url", "generated_at", "attribution"],
+      "properties": {
+        "name": { "const": "Jazz Lineup" },
+        "url": { "type": "string", "format": "uri" },
+        "feed_url": { "type": "string", "format": "uri" },
+        "generated_at": { "type": ["string", "null"] },
+        "attribution": { "const": "Data: Jazz Lineup" }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/event" }
+    }
+  },
+  "$defs": {
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "date", "sets", "venue_id", "venue", "neighborhood", "event_url", "price"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "sets": { "type": "array", "items": { "type": "string", "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$" } },
+        "venue_id": { "type": "string", "minLength": 1 },
+        "venue": { "type": "string", "minLength": 1 },
+        "neighborhood": { "type": ["string", "null"] },
+        "event_url": { "type": "string", "format": "uri" },
+        "price": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

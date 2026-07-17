@@ -18,6 +18,8 @@ After GitHub Pages is enabled, the feed will be available at:
 
 It contains a versioned schema, source attribution, freshness timestamps, NYC venue metadata, and upcoming events. It intentionally does **not** mirror Jazz Lineup's complete data set or retain a historical archive.
 
+The v1 contract is documented in [`schema/nyc-feed.schema.json`](schema/nyc-feed.schema.json). The collector validates the feed before every deployment, and a separate GitHub Actions workflow fetches and validates the deployed JSON after GitHub Pages updates.
+
 ## TRMNL setup
 
 1. Import [`recipe/settings.yml`](recipe/settings.yml) into a TRMNL **Polling** private plugin, then paste [`recipe/markup.liquid`](recipe/markup.liquid) into the markup editor.
@@ -50,6 +52,8 @@ npm run collect
 ## Contributing
 
 Issues and pull requests are welcome, especially for legibility on e-ink, venue corrections, and data-quality safeguards. Please read [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+
+See [device compatibility](docs/device-compatibility.md), the [roadmap](ROADMAP.md), and the [security policy](SECURITY.md) for public-release status and reporting paths.
 
 ## License
 

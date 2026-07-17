@@ -1,0 +1,26 @@
+name: Data or venue correction
+description: Report a source mapping, venue, time, or schedule problem.
+title: "data: "
+labels: ["data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This project republishes a limited view of Jazz Lineup data. Please also report source errors directly to Jazz Lineup when appropriate.
+  - type: input
+    id: event_url
+    attributes:
+      label: Source event URL
+      description: Link to the Jazz Lineup event, if available.
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should the feed display?
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: What did it display instead?
+    validations:
+      required: true
