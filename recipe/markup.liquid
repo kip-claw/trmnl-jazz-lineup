@@ -8,9 +8,9 @@
   </div>
 
   {% if tonight.size > 0 %}
-    <div class="grid grid--cols-3 gap--small" style="grid-auto-flow: row; align-content: start;">
+    <div class="grid grid--cols-4 gap--xsmall" style="grid-auto-flow: row; align-content: start;">
       {% for event in tonight %}
-        <div class="item" style="min-width: 0; padding-bottom: 5px;">
+        <div class="item" style="min-width: 0; padding-bottom: 3px;">
           <div class="flex flex--row flex--align-center gap--xsmall">
             <span class="label label--small" style="width: 38px; flex: none;">{{ event.sets.first | default: "TBA" }}</span>
             <span class="description description--small" style="font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ event.title }}</span>

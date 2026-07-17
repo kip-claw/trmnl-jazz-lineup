@@ -2,7 +2,7 @@
 
 An open-source, no-account-needed data feed and [TRMNL](https://trmnl.com/) Recipe for a concise **NYC Jazz Tonight** display.
 
-It fetches Jazz Lineup's public NYC event feed, retains only the fields needed for an e-ink schedule, and publishes a small, documented JSON feed. The accompanying Liquid markup is designed for a TRMNL private plugin / community Recipe and renders every show listed for the current NYC day in chronological, three-column order.
+It fetches Jazz Lineup's public NYC event feed, retains only the fields needed for an e-ink schedule, and publishes a small, documented JSON feed. The accompanying Liquid markup is designed for a TRMNL private plugin / community Recipe and renders every show listed for the current NYC day in chronological, four-column order.
 
 > Data source: [Jazz Lineup](https://jazzlineup.com/). This project is not affiliated with Jazz Lineup or TRMNL.
 
