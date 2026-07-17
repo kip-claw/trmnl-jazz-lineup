@@ -4,6 +4,9 @@ import path from "node:path";
 
 export const SOURCE_URL = "https://jazzlineup.com/events-nyc.json";
 export const MAX_FUTURE_EVENTS = 24;
+export const MAX_RESPONSE_BYTES = 3_000_000;
+export const REQUEST_TIMEOUT_MS = 15_000;
+export const STALE_AFTER_SECONDS = 90 * 60;
 
 export function nycDate(now = new Date()) {
   return new Intl.DateTimeFormat("en-CA", {
@@ -19,10 +22,11 @@ export function buildFeed(source, now = new Date()) {
     throw new Error("Jazz Lineup response does not have clubs and events arrays");
   }
 
-  const clubById = new Map(source.clubs.map((club) => [club.id, club]));
+  if (source.clubs.length > 100 || source.events.length > 10_000) throw new Error("Jazz Lineup response exceeds expected limits");
+  const clubById = new Map(source.clubs.filter((club) => typeof club.id === "string" && typeof club.name === "string").map((club) => [club.id, club]));
   const today = nycDate(now);
   const upcoming = source.events
-    .filter((event) => event.date >= today && clubById.has(event.clubId))
+    .filter((event) => event.date >= today && /^\d{4}-\d{2}-\d{2}$/.test(event.date ?? "") && typeof event.title === "string" && event.title.trim() && clubById.has(event.clubId) && /^https:\/\//.test(event.url ?? "") && (event.sets == null || (Array.isArray(event.sets) && event.sets.every((set) => /^([01]\d|2[0-3]):[0-5]\d$/.test(set)))))
     .sort((a, b) => `${a.date} ${a.sets?.[0] ?? "99:99"}`.localeCompare(`${b.date} ${b.sets?.[0] ?? "99:99"}`));
   // The screen promises today's complete listing. Future shows are a small
   // convenience preview, rather than an archive or calendar mirror.
@@ -44,9 +48,11 @@ export function buildFeed(source, now = new Date()) {
       };
     });
 
+  const sourceGeneratedAt = Date.parse(source.generatedAt) || now.valueOf();
   return {
     schema_version: 1,
     generated_at: now.toISOString(),
+    stale_after_epoch: Math.floor(sourceGeneratedAt / 1000) + STALE_AFTER_SECONDS,
     source: {
       name: "Jazz Lineup",
       url: "https://jazzlineup.com/",
@@ -62,10 +68,13 @@ export function buildFeed(source, now = new Date()) {
 }
 
 export async function collect({ fetchImpl = fetch, now = new Date(), outputPath } = {}) {
-  const response = await fetchImpl(SOURCE_URL, {
-    headers: { "User-Agent": "trmnl-jazz-lineup/0.1 (+https://github.com/kip-claw/trmnl-jazz-lineup)" }
-  });
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  const response = await fetchImpl(SOURCE_URL, { headers: { "Accept": "application/json", "User-Agent": "trmnl-jazz-lineup/0.1 (+https://github.com/kip-claw/trmnl-jazz-lineup)" }, signal: controller.signal });
+  clearTimeout(timeout);
   if (!response.ok) throw new Error(`Jazz Lineup responded with HTTP ${response.status}`);
+  if (!response.headers.get("content-type")?.includes("application/json")) throw new Error("Jazz Lineup response is not JSON");
+  if (Number(response.headers.get("content-length") || 0) > MAX_RESPONSE_BYTES) throw new Error("Jazz Lineup response is too large");
   const feed = buildFeed(await response.json(), now);
   if (outputPath) {
     await mkdir(path.dirname(outputPath), { recursive: true });

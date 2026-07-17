@@ -1,6 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-17T15:17:38.853Z",
+  "generated_at": "2026-07-17T15:24:44.002Z",
+  "stale_after_epoch": 1784301157,
   "source": {
     "name": "Jazz Lineup",
     "url": "https://jazzlineup.com/",

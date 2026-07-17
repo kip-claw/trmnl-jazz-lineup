@@ -34,3 +34,8 @@ test("buildFeed never truncates the current day's listing", () => {
   const feed = buildFeed({ ...source, events: manyToday }, new Date("2026-07-17T14:00:00Z"));
   assert.equal(feed.events.length, 30);
 });
+
+test("buildFeed excludes malformed events instead of publishing them", () => {
+  const feed = buildFeed({ ...source, events: [{ clubId: "club", title: "Bad time", date: "2026-07-17", sets: ["later"], url: "https://example.test/bad" }] }, new Date("2026-07-17T14:00:00Z"));
+  assert.equal(feed.events.length, 0);
+});

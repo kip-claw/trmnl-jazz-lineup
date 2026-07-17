@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "collect": "node scripts/collect.mjs",
+    "verify:venues": "node scripts/verify-venues.mjs",
     "test": "node --test"
   },
   "engines": {

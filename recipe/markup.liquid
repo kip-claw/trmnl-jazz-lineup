@@ -1,5 +1,6 @@
 <div class="layout layout--col gap--space-between">
   {% assign favorite_venues = trmnl.plugin_settings.custom_fields_values.favorite_venues %}
+  {% assign now_epoch = "now" | date: "%s" | plus: 0 %}
   {% assign shown_count = 0 %}
   {% for event in events %}
     {% if event.date == today %}
@@ -45,5 +46,5 @@
     </div>
   {% endif %}
 
-  <div class="description description--small">{% if favorite_venues == blank %}All venues{% else %}Favorite venues{% endif %} · Data: Jazz Lineup · Updated {{ generated_at | date: "%l:%M %p" }}</div>
+  <div class="description description--small">{% if favorite_venues == blank %}All venues{% else %}Favorite venues{% endif %} · Data: Jazz Lineup · Updated {{ generated_at | date: "%l:%M %p" }}{% if now_epoch > stale_after_epoch %} · DATA MAY BE STALE{% endif %}</div>
 </div>
