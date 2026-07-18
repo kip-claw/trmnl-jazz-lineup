@@ -1,9 +1,11 @@
 # Device compatibility
 
-The first public Recipe targets TRMNL's standard **full** layout at 800×480
-(the 7.5-inch display). It intentionally favors a complete, dense daily
-schedule over large type: four columns, with artist and venue names clipped
-with an ellipsis rather than wrapping into adjacent entries.
+The Recipe targets TRMNL's standard **full** layout. It intentionally favors a
+complete, dense daily schedule over large type, with artist and venue names
+clipped with an ellipsis rather than wrapping into adjacent entries. The
+column-major grid shows **four columns in landscape** and reflows to **two
+columns in portrait** (TRMNL X), keyed off the framework's `.screen--portrait`
+class so the chronological down-each-column order is preserved in both.
 
 ## Current support
 
@@ -17,7 +19,7 @@ with an ellipsis rather than wrapping into adjacent entries.
 
 1. Import `recipe/settings.yml` into a private Polling plugin.
 2. Paste `recipe/markup.liquid` into the markup editor and select the `full` layout.
-3. Check an ordinary day and a high-volume day; confirm that the last listing, footer, and stale notice remain visible.
+3. Check an ordinary day and a high-volume day; confirm that the last listing, footer, and stale notice remain visible. Preview both landscape (TRMNL OG and X) and portrait (TRMNL X); confirm the grid shows four columns in landscape and two in portrait.
 4. Capture a non-personal 800×480 preview and add it to this repository before submitting or materially changing the public Recipe.
 
 ![Jazz Lineup NYC preview](https://raw.githubusercontent.com/kip-claw/trmnl-jazz-lineup/refs/heads/main/docs/nyc-jazz-lineup-device.jpg)

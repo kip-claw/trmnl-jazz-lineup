@@ -6,6 +6,27 @@
   {% endif %}
 {% endfor %}
 {% assign row_count = shown_count | divided_by: 4.0 | ceil %}
+{% assign row_count_portrait = shown_count | divided_by: 2.0 | ceil %}
+
+{% comment %} Column-major grid: 4 columns in landscape, 2 in portrait. Framework
+grid--cols-* is row-major and would scramble the chronological down-each-column
+order, so the layout is scoped here and keyed off TRMNL's .screen--portrait class. {% endcomment %}
+<style>
+  .jazz-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat({{ row_count }}, 1fr);
+    grid-auto-flow: column;
+    column-gap: 24px;
+    row-gap: 6px;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+  .screen--portrait .jazz-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat({{ row_count_portrait }}, 1fr);
+  }
+</style>
 
 <div class="flex flex--row flex--align-center" style="flex: none; margin-bottom: 4px; justify-content: space-between; width: 100%;">
   <div class="flex flex--row flex--align-center gap--small">
@@ -16,7 +37,7 @@
 </div>
 
 {% if shown_count > 0 %}
-<div class="grid" style="grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat({{ row_count }}, 1fr); grid-auto-flow: column; column-gap: 24px; row-gap: 6px; flex: 1 1 auto; min-height: 0;">
+<div class="jazz-grid">
   {% for event in events %}
     {% if event.on_board %}
     <div class="item" style="min-width: 0; display: flex; flex-direction: column; justify-content: center;">
