@@ -1,13 +1,13 @@
 {% assign shown_count = 0 %}
 {% for event in events %}{% if event.on_board %}{% assign shown_count = shown_count | plus: 1 %}{% endif %}{% endfor %}
 {% assign hh_shown = shown_count %}
-{% if hh_shown > 24 %}{% assign hh_shown = 24 %}{% endif %}
+{% if hh_shown > 20 %}{% assign hh_shown = 20 %}{% endif %}
 {% assign hh_rows = hh_shown | divided_by: 4.0 | ceil %}
 {% if hh_rows < 1 %}{% assign hh_rows = 1 %}{% endif %}
 
 {% comment %} Column-major grid scoped here (like the full board); the Framework
-grid class centers its items. Utility classes move class-less values out of
-inline styles. {% endcomment %}
+grid class centers its items. Two-line entries (title + venue) match the full
+view. Utility classes move class-less values out of inline styles. {% endcomment %}
 <style>
   .jazz-min-w-0 { min-width: 0; }
   .jazz-trunc { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -20,7 +20,7 @@ inline styles. {% endcomment %}
     grid-template-rows: repeat({{ hh_rows }}, 1fr);
     grid-auto-flow: column;
     column-gap: 24px;
-    row-gap: 4px;
+    row-gap: 6px;
     flex: 1 1 auto;
     min-height: 0;
     overflow: hidden;
@@ -39,10 +39,13 @@ inline styles. {% endcomment %}
   {% assign n = 0 %}
   {% for event in events %}
     {% if event.on_board %}
-      {% if n < 24 %}
+      {% if n < 20 %}
       <div class="flex flex--row flex--align-center gap--xsmall jazz-min-w-0">
         <span class="label label--small flex-none jazz-time">{{ event.sets.first | default: "TBA" }}</span>
-        <span class="description description--small jazz-bold grow jazz-trunc">{{ event.title }}</span>
+        <div class="grow jazz-min-w-0">
+          <div class="description description--small jazz-bold jazz-trunc">{{ event.title }}</div>
+          <div class="description description--small jazz-trunc">{{ event.venue }}</div>
+        </div>
       </div>
       {% endif %}
       {% assign n = n | plus: 1 %}

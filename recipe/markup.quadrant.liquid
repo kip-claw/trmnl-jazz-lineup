@@ -12,7 +12,7 @@ move class-less values out of inline styles. {% endcomment %}
   .jazz-list {
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: 4px;
+    row-gap: 6px;
     align-content: start;
     flex: 1 1 auto;
     min-height: 0;
@@ -32,17 +32,20 @@ move class-less values out of inline styles. {% endcomment %}
   {% assign n = 0 %}
   {% for event in events %}
     {% if event.on_board %}
-      {% if n < 6 %}
+      {% if n < 5 %}
       <div class="flex flex--row flex--align-center gap--xsmall jazz-min-w-0">
         <span class="label label--small flex-none jazz-time">{{ event.sets.first | default: "TBA" }}</span>
-        <span class="description description--small jazz-bold grow jazz-trunc">{{ event.title }}</span>
+        <div class="grow jazz-min-w-0">
+          <div class="description description--small jazz-bold jazz-trunc">{{ event.title }}</div>
+          <div class="description description--small jazz-trunc">{{ event.venue }}</div>
+        </div>
       </div>
       {% endif %}
       {% assign n = n | plus: 1 %}
     {% endif %}
   {% endfor %}
-  {% if shown_count > 6 %}
-  <span class="label label--small">+{{ shown_count | minus: 6 }} more</span>
+  {% if shown_count > 5 %}
+  <span class="label label--small">+{{ shown_count | minus: 5 }} more</span>
   {% endif %}
 </div>
 {% else %}
