@@ -1,5 +1,5 @@
 ---
-name: NYC Jazz Tonight
+name: Jazz Lineup NYC
 strategy: polling
 refresh_interval: 15
 polling_url: https://kip-claw.github.io/trmnl-jazz-lineup/nyc.json
@@ -7,41 +7,3 @@ polling_headers: ''
 polling_verb: GET
 no_screen_padding: 'no'
 dark_mode: 'no'
-custom_fields:
-  - keyname: favorite_venues
-    name: Favorite venues
-    description: Optional. Select one or more venues to show only their sets; leave blank for every NYC show listed today.
-    help_text: Use <kbd>⌘</kbd>+click or <kbd>ctrl</kbd>+click to select and deselect venues.
-    field_type: select
-    multiple: true
-    optional: true
-    options:
-      - Village Vanguard: vanguard
-      - Blue Note: bluenote
-      - Smalls Jazz Club: smalls
-      - Mezzrow: mezzrow
-      - Birdland: birdland
-      - The Jazz Gallery: jazzgallery
-      - Dizzy's Club: dizzys
-      - Jazz Cultural Theater: jazzcultural
-      - Smoke Jazz Club: smoke
-      - Nublu 151: nublu
-      - Bar LunÀtico: lunatico
-      - The Django: django
-      - Cellar Dog: cellardog
-      - Arthur's Tavern: arthurs
-      - Zinc Bar: zincbar
-      - The Pocket: pocket
-      - Close Up: closeup
-      - Bill's Place: billsplace
-      - Barbès: barbes
-      - Ornithology Jazz Club: ornithology
-      - Ornithology Cafe: ornithologycafe
-      - Bar Bayeux: barbayeux
-      - Roulette Intermedium: roulette
-      - JCAL (Jamaica Center): jcal
-      - Silvana: silvana
-      - Shrine World Music Venue: shrine
-      - Sistas' Place: sistasplace
-      - Terraza 7: terraza7
-      - Marjorie Eliot's Parlor Jazz: marjorie
