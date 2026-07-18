@@ -19,7 +19,7 @@
       {% if n < 24 %}
       <div class="flex flex--row flex--align-center gap--xsmall" style="min-width: 0;">
         <span class="label label--small flex-none" style="width: 32px;">{{ event.sets.first | default: "TBA" }}</span>
-        <span class="description description--small clamp--1 grow" style="font-weight: 700; min-width: 0;">{{ event.title }}</span>
+        <span class="description description--small grow" style="font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;">{{ event.title }}</span>
       </div>
       {% endif %}
       {% assign n = n | plus: 1 %}

@@ -7,8 +7,9 @@
 {% comment %} Column-major grid: 4 columns in landscape, 2 in portrait. Framework
 grid--cols-* is row-major and would scramble the chronological down-each-column
 order, so the grid template is scoped here and keyed off TRMNL's .screen--portrait
-class. Remaining inline styles are limited to values with no Framework class
-(the dynamic grid template, the fixed time-column width, and bold weight). {% endcomment %}
+class. Remaining inline styles are limited to properties with no Framework class
+(the dynamic grid template, the fixed time-column width, bold weight, and
+single-line truncation). {% endcomment %}
 <style>
   .jazz-grid {
     display: grid;
@@ -40,9 +41,9 @@ class. Remaining inline styles are limited to values with no Framework class
     {% if event.on_board %}
     <div class="flex flex--row flex--align-center gap--xsmall" style="min-width: 0;">
       <span class="label label--small flex-none" style="width: 32px;">{{ event.sets.first | default: "TBA" }}</span>
-      <div class="flex flex--col grow" style="min-width: 0;">
-        <span class="description description--small clamp--1" style="font-weight: 700;">{{ event.title }}</span>
-        <span class="description description--small clamp--1">{{ event.venue }}</span>
+      <div class="grow" style="min-width: 0;">
+        <div class="description description--small" style="font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ event.title }}</div>
+        <div class="description description--small" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ event.venue }}</div>
       </div>
     </div>
     {% endif %}
