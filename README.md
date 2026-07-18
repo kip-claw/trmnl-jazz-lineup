@@ -10,7 +10,7 @@ It fetches Jazz Lineup's public NYC event feed, retains only the fields needed f
 
 ## Status
 
-Early public prototype. The project deliberately starts as a TRMNL **Recipe**, not a hosted OAuth plugin: it requires no user credentials or personal data, is simple to fork, and can be submitted for TRMNL community review when the display and data policy are ready.
+First stable release (v1.0.0), ready for TRMNL community-Recipe submission. The project deliberately ships as a TRMNL **Recipe**, not a hosted OAuth plugin: it requires no user credentials or personal data, is simple to fork, and carries the source maintainer's blessing for attributed reuse.
 
 ## Public feed
 

@@ -4,7 +4,7 @@
 
 - [x] Capture and review a real 800×480 TRMNL render.
 - [x] Receive or document Jazz Lineup's response to the limited, attributed reuse request. (Reuse blessed by the maintainer for community-Recipe submission, with visible attribution to jazzlineup.com and the understanding that the feed is not a formal API.)
-- [ ] Tag the first stable Recipe release after the above checks.
+- [x] Tag the first stable Recipe release after the above checks. (v1.0.0)
 
 ## Afterwards
 
