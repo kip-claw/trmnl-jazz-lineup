@@ -7,7 +7,7 @@ export const MAX_FUTURE_EVENTS = 24;
 export const MAX_RESPONSE_BYTES = 3_000_000;
 export const REQUEST_TIMEOUT_MS = 15_000;
 export const STALE_AFTER_SECONDS = 90 * 60;
-export const NIGHT_CUTOFF = "04:00"; // sets before this belong to the previous night's board
+export const NIGHT_CUTOFF = "04:00"; // the board day runs from this time today to this time tomorrow
 
 export function nycDate(now = new Date()) {
   return new Intl.DateTimeFormat("en-CA", {
@@ -37,14 +37,23 @@ function shiftDate(dateStr, deltaDays) {
   return dt.toISOString().slice(0, 10);
 }
 
-export function effectiveToday(now = new Date()) {
+// The "board day" is whichever NIGHT_CUTOFF-to-NIGHT_CUTOFF window we're
+// currently inside. Before 4am, we're still inside yesterday's window.
+export function boardDay(now = new Date()) {
   const calendarToday = nycDate(now);
   return nycClock(now) < NIGHT_CUTOFF ? shiftDate(calendarToday, -1) : calendarToday;
 }
 
-function nightDate(event) {
-  const firstSet = event.sets?.[0];
-  return firstSet && firstSet < NIGHT_CUTOFF ? shiftDate(event.date, -1) : event.date;
+function firstSetTime(event) {
+  return event.sets?.[0] ?? "12:00"; // no listed time: treat as an ordinary daytime item
+}
+
+// True if `event` falls within [day 04:00, day+1 04:00).
+function inBoardWindow(event, day) {
+  const time = firstSetTime(event);
+  if (event.date === day) return time >= NIGHT_CUTOFF;
+  if (event.date === shiftDate(day, 1)) return time < NIGHT_CUTOFF;
+  return false;
 }
 
 export function buildFeed(source, now = new Date()) {
@@ -54,35 +63,41 @@ export function buildFeed(source, now = new Date()) {
 
   if (source.clubs.length > 100 || source.events.length > 10_000) throw new Error("Jazz Lineup response exceeds expected limits");
   const clubById = new Map(source.clubs.filter((club) => typeof club.id === "string" && typeof club.name === "string").map((club) => [club.id, club]));
-  const today = effectiveToday(now);
+  const today = boardDay(now);
+  const tomorrow = shiftDate(today, 1);
 
-  const normalized = source.events
-    .filter((event) => /^\d{4}-\d{2}-\d{2}$/.test(event.date ?? "") && typeof event.title === "string" && event.title.trim() && clubById.has(event.clubId) && /^https:\/\//.test(event.url ?? "") && (event.sets == null || (Array.isArray(event.sets) && event.sets.every((set) => /^([01]\d|2[0-3]):[0-5]\d$/.test(set)))))
-    .map((event) => ({ ...event, date: nightDate(event) }));
+  const valid = source.events.filter((event) => /^\d{4}-\d{2}-\d{2}$/.test(event.date ?? "") && typeof event.title === "string" && event.title.trim() && clubById.has(event.clubId) && /^https:\/\//.test(event.url ?? "") && (event.sets == null || (Array.isArray(event.sets) && event.sets.every((set) => /^([01]\d|2[0-3]):[0-5]\d$/.test(set)))));
 
-  const upcoming = normalized
-    .filter((event) => event.date >= today)
+  const sorted = valid
+    .slice()
     .sort((a, b) => `${a.date} ${a.sets?.[0] ?? "99:99"}`.localeCompare(`${b.date} ${b.sets?.[0] ?? "99:99"}`));
 
-  // The screen promises today's complete listing. Future shows are a small
-  // convenience preview, rather than an archive or calendar mirror.
+  // The screen promises today's complete board: every set from 4am today
+  // through 4am tomorrow, including tonight's after-midnight tail. Anything
+  // beyond that window is a small convenience preview, not shown on the
+  // board itself.
+  const boardEvents = sorted.filter((event) => inBoardWindow(event, today));
+  const future = sorted
+    .filter((event) => event.date > tomorrow || (event.date === tomorrow && firstSetTime(event) >= NIGHT_CUTOFF))
+    .slice(0, MAX_FUTURE_EVENTS);
+
   const events = [
-    ...upcoming.filter((event) => event.date === today),
-    ...upcoming.filter((event) => event.date > today).slice(0, MAX_FUTURE_EVENTS)
-  ]
-    .map((event) => {
-      const club = clubById.get(event.clubId);
-      return {
-        title: event.title,
-        date: event.date,
-        sets: Array.isArray(event.sets) ? event.sets : [],
-        venue_id: club.id,
-        venue: club.name,
-        neighborhood: club.neighborhood ?? null,
-        event_url: event.url,
-        price: event.priceText ?? null
-      };
-    });
+    ...boardEvents.map((event) => ({ ...event, on_board: true })),
+    ...future.map((event) => ({ ...event, on_board: false }))
+  ].map((event) => {
+    const club = clubById.get(event.clubId);
+    return {
+      title: event.title,
+      date: event.date,
+      sets: Array.isArray(event.sets) ? event.sets : [],
+      venue_id: club.id,
+      venue: club.name,
+      neighborhood: club.neighborhood ?? null,
+      event_url: event.url,
+      price: event.priceText ?? null,
+      on_board: event.on_board
+    };
+  });
 
   const sourceGeneratedAt = Date.parse(source.generatedAt) || now.valueOf();
   return {
