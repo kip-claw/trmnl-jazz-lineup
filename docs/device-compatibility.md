@@ -18,7 +18,6 @@ with an ellipsis rather than wrapping into adjacent entries.
 1. Import `recipe/settings.yml` into a private Polling plugin.
 2. Paste `recipe/markup.liquid` into the markup editor and select the `full` layout.
 3. Check an ordinary day and a high-volume day; confirm that the last listing, footer, and stale notice remain visible.
-4. Check one favorite venue, several favorites, and no matching favorites.
-5. Capture a non-personal 800×480 preview and add it to this repository before submitting or materially changing the public Recipe.
+4. Capture a non-personal 800×480 preview and add it to this repository before submitting or materially changing the public Recipe.
 
 No simulated screenshot is included here: an actual TRMNL render is more useful evidence than a browser approximation.
