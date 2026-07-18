@@ -48,11 +48,14 @@ function firstSetTime(event) {
   return event.sets?.[0] ?? "12:00"; // no listed time: treat as an ordinary daytime item
 }
 
-// True if `event` falls within [day 04:00, day+1 04:00).
+// True if `event` falls within [day 04:00, day+1 04:00) — checks every
+// listed set, not just the first, since a single event can carry both an
+// early set and a late set under the same source date (e.g. a club with a
+// midnight set held over from the prior night plus a fresh evening set).
 function inBoardWindow(event, day) {
-  const time = firstSetTime(event);
-  if (event.date === day) return time >= NIGHT_CUTOFF;
-  if (event.date === shiftDate(day, 1)) return time < NIGHT_CUTOFF;
+  const times = event.sets && event.sets.length ? event.sets : ["12:00"];
+  if (event.date === day) return times.some((t) => t >= NIGHT_CUTOFF);
+  if (event.date === shiftDate(day, 1)) return times.some((t) => t < NIGHT_CUTOFF);
   return false;
 }
 
@@ -64,7 +67,6 @@ export function buildFeed(source, now = new Date()) {
   if (source.clubs.length > 100 || source.events.length > 10_000) throw new Error("Jazz Lineup response exceeds expected limits");
   const clubById = new Map(source.clubs.filter((club) => typeof club.id === "string" && typeof club.name === "string").map((club) => [club.id, club]));
   const today = boardDay(now);
-  const tomorrow = shiftDate(today, 1);
 
   const valid = source.events.filter((event) => /^\d{4}-\d{2}-\d{2}$/.test(event.date ?? "") && typeof event.title === "string" && event.title.trim() && clubById.has(event.clubId) && /^https:\/\//.test(event.url ?? "") && (event.sets == null || (Array.isArray(event.sets) && event.sets.every((set) => /^([01]\d|2[0-3]):[0-5]\d$/.test(set)))));
 
@@ -78,7 +80,7 @@ export function buildFeed(source, now = new Date()) {
   // board itself.
   const boardEvents = sorted.filter((event) => inBoardWindow(event, today));
   const future = sorted
-    .filter((event) => event.date > tomorrow || (event.date === tomorrow && firstSetTime(event) >= NIGHT_CUTOFF))
+    .filter((event) => event.date > today && !inBoardWindow(event, today))
     .slice(0, MAX_FUTURE_EVENTS);
 
   const events = [
