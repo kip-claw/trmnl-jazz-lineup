@@ -1,4 +1,4 @@
-<div class="layout layout--col" style="height: 100%;">
+<div class="layout layout--col">
 {% assign shown_count = 0 %}
 {% for event in events %}{% if event.on_board %}{% assign shown_count = shown_count | plus: 1 %}{% endif %}{% endfor %}
 {% assign row_count = shown_count | divided_by: 4.0 | ceil %}
@@ -7,10 +7,12 @@
 {% comment %} Column-major grid: 4 columns in landscape, 2 in portrait. Framework
 grid--cols-* is row-major and would scramble the chronological down-each-column
 order, so the grid template is scoped here and keyed off TRMNL's .screen--portrait
-class. Remaining inline styles are limited to properties with no Framework class
-(the dynamic grid template, the fixed time-column width, bold weight, and
-single-line truncation). {% endcomment %}
+class. The utility classes below move the remaining class-less values (fixed time
+column, flex truncation) out of inline styles, per Chef's guidance. {% endcomment %}
 <style>
+  .jazz-min-w-0 { min-width: 0; }
+  .jazz-trunc { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .jazz-time { width: 32px; }
   .jazz-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -27,7 +29,7 @@ single-line truncation). {% endcomment %}
   }
 </style>
 
-<div class="flex flex--row flex--align-center flex--between flex-none mb--small" style="width: 100%;">
+<div class="flex flex--row flex--align-center flex--between flex-none mb--small w--full">
   <div class="flex flex--row flex--align-center gap--small">
     <span class="title title--small">JazzLineup.com NYC</span>
     <span class="description description--small">{{ today | date: "%A, %B %-d" }}</span>
@@ -39,11 +41,11 @@ single-line truncation). {% endcomment %}
 <div class="jazz-grid">
   {% for event in events %}
     {% if event.on_board %}
-    <div class="flex flex--row flex--align-center gap--xsmall" style="min-width: 0;">
-      <span class="label label--small flex-none" style="width: 32px;">{{ event.sets.first | default: "TBA" }}</span>
-      <div class="grow" style="min-width: 0;">
-        <div class="description description--small" style="font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ event.title }}</div>
-        <div class="description description--small" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ event.venue }}</div>
+    <div class="flex flex--row flex--align-center gap--xsmall jazz-min-w-0">
+      <span class="label label--small flex-none jazz-time">{{ event.sets.first | default: "TBA" }}</span>
+      <div class="grow jazz-min-w-0">
+        <div class="description description--small text--bold jazz-trunc">{{ event.title }}</div>
+        <div class="description description--small jazz-trunc">{{ event.venue }}</div>
       </div>
     </div>
     {% endif %}
@@ -52,9 +54,15 @@ single-line truncation). {% endcomment %}
 {% else %}
 <div class="center-center grow">
   <div>
-    <div class="title">No listed sets tonight</div>
-    <div class="description">Check Jazz Lineup for changes.</div>
+    <div class="title title--small">No listed sets tonight</div>
+    <div class="description description--small">Check Jazz Lineup for changes.</div>
   </div>
 </div>
 {% endif %}
+</div>
+
+<div class="title_bar">
+  <img class="image" src="https://raw.githubusercontent.com/kip-claw/trmnl-jazz-lineup/main/docs/jazzlineup-favicon-eink.png" />
+  <span class="title">Jazz Lineup NYC</span>
+  <span class="instance">{{ trmnl.plugin_settings.instance_name }}</span>
 </div>

@@ -1,10 +1,13 @@
-<div class="layout layout--col" style="height: 100%;">
+<div class="layout layout--col">
 {% assign shown_count = 0 %}
 {% for event in events %}{% if event.on_board %}{% assign shown_count = shown_count | plus: 1 %}{% endif %}{% endfor %}
 
-{% comment %} Single-column scoped grid (like the full board) rather than a flex
-column, whose stretch utilities bled the rows past the left edge. {% endcomment %}
+{% comment %} Single-column scoped grid (like the full board). Utility classes
+move class-less values out of inline styles. {% endcomment %}
 <style>
+  .jazz-min-w-0 { min-width: 0; }
+  .jazz-trunc { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .jazz-time { width: 32px; }
   .jazz-list {
     display: grid;
     grid-template-columns: 1fr;
@@ -16,7 +19,7 @@ column, whose stretch utilities bled the rows past the left edge. {% endcomment 
   }
 </style>
 
-<div class="flex flex--row flex--align-center flex--between flex-none mb--small" style="width: 100%;">
+<div class="flex flex--row flex--align-center flex--between flex-none mb--small w--full">
   <div class="flex flex--row flex--align-center gap--small">
     <span class="title title--small">JazzLineup.com NYC</span>
     <span class="description description--small">{{ today | date: "%A, %B %-d" }}</span>
@@ -30,9 +33,9 @@ column, whose stretch utilities bled the rows past the left edge. {% endcomment 
   {% for event in events %}
     {% if event.on_board %}
       {% if n < 6 %}
-      <div class="flex flex--row flex--align-center gap--xsmall" style="min-width: 0;">
-        <span class="label label--small flex-none" style="width: 32px;">{{ event.sets.first | default: "TBA" }}</span>
-        <span class="description description--small grow" style="font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;">{{ event.title }}</span>
+      <div class="flex flex--row flex--align-center gap--xsmall jazz-min-w-0">
+        <span class="label label--small flex-none jazz-time">{{ event.sets.first | default: "TBA" }}</span>
+        <span class="description description--small text--bold grow jazz-trunc">{{ event.title }}</span>
       </div>
       {% endif %}
       {% assign n = n | plus: 1 %}
@@ -44,7 +47,16 @@ column, whose stretch utilities bled the rows past the left edge. {% endcomment 
 </div>
 {% else %}
 <div class="center-center grow">
-  <div class="description description--small">No sets tonight</div>
+  <div>
+    <div class="title title--small">No listed sets tonight</div>
+    <div class="description description--small">Check Jazz Lineup for changes.</div>
+  </div>
 </div>
 {% endif %}
+</div>
+
+<div class="title_bar">
+  <img class="image" src="https://raw.githubusercontent.com/kip-claw/trmnl-jazz-lineup/main/docs/jazzlineup-favicon-eink.png" />
+  <span class="title">Jazz Lineup NYC</span>
+  <span class="instance">{{ trmnl.plugin_settings.instance_name }}</span>
 </div>
