@@ -20,6 +20,6 @@ with an ellipsis rather than wrapping into adjacent entries.
 3. Check an ordinary day and a high-volume day; confirm that the last listing, footer, and stale notice remain visible.
 4. Capture a non-personal 800×480 preview and add it to this repository before submitting or materially changing the public Recipe.
 
-[![Jazz Lineup NYC preview](jazz-lineup-nyc-preview.png)](https://raw.githubusercontent.com/kip-claw/trmnl-jazz-lineup/refs/heads/main/docs/nyc-jazz-lineup-preview.png)
+![Jazz Lineup NYC preview](https://raw.githubusercontent.com/kip-claw/trmnl-jazz-lineup/refs/heads/main/docs/nyc-jazz-lineup-preview.png)
 
 The image above is TRMNL's server-rendered Pop Out Preview, which mirrors the dithering/rendering pipeline used for the physical device, and has been visually confirmed against the actual 7.5-inch hardware.
