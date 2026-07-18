@@ -50,7 +50,7 @@ export function validateFeed(feed) {
   if (!Array.isArray(feed.events)) add("events must be an array");
   else feed.events.forEach((event, index) => {
     const prefix = `events[${index}]`;
-    const keys = ["title", "date", "sets", "venue_id", "venue", "neighborhood", "event_url", "price"];
+    const keys = ["title", "date", "sets", "venue_id", "venue", "neighborhood", "event_url", "price", "on_board"];
     if (!event || typeof event !== "object" || Array.isArray(event)) return add(`${prefix} must be an object`);
     for (const key of keys) if (!(key in event)) add(`${prefix} is missing ${key}`);
     if (!hasOnlyKeys(event, keys)) add(`${prefix} has unsupported fields`);
@@ -62,6 +62,7 @@ export function validateFeed(feed) {
     if (event.neighborhood !== null && typeof event.neighborhood !== "string") add(`${prefix}.neighborhood must be a string or null`);
     if (!isHttpsUrl(event.event_url)) add(`${prefix}.event_url must be an HTTPS URL`);
     if (event.price !== null && typeof event.price !== "string") add(`${prefix}.price must be a string or null`);
+    if (typeof event.on_board !== "boolean") add(`${prefix}.on_board must be a boolean`);
   });
   return errors;
 }
