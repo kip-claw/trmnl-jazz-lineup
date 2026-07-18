@@ -59,6 +59,17 @@ function inBoardWindow(event, day) {
   return false;
 }
 
+// Given an on-board event, return only the set times that actually belong
+// to tonight's window — drops any leftover time from the adjacent night
+// (e.g. a 00:15 set on an event whose real relevance tonight is its 23:00
+// set). Used for both sort order and the time label shown on the board.
+function boardSets(event, day) {
+  const times = event.sets ?? [];
+  if (event.date === day) return times.filter((t) => t >= NIGHT_CUTOFF);
+  if (event.date === shiftDate(day, 1)) return times.filter((t) => t < NIGHT_CUTOFF);
+  return times;
+}
+
 export function buildFeed(source, now = new Date()) {
   if (!source || !Array.isArray(source.clubs) || !Array.isArray(source.events)) {
     throw new Error("Jazz Lineup response does not have clubs and events arrays");
@@ -70,21 +81,22 @@ export function buildFeed(source, now = new Date()) {
 
   const valid = source.events.filter((event) => /^\d{4}-\d{2}-\d{2}$/.test(event.date ?? "") && typeof event.title === "string" && event.title.trim() && clubById.has(event.clubId) && /^https:\/\//.test(event.url ?? "") && (event.sets == null || (Array.isArray(event.sets) && event.sets.every((set) => /^([01]\d|2[0-3]):[0-5]\d$/.test(set)))));
 
-  const sorted = valid
-    .slice()
-    .sort((a, b) => `${a.date} ${a.sets?.[0] ?? "99:99"}`.localeCompare(`${b.date} ${b.sets?.[0] ?? "99:99"}`));
+  // Events on tonight's board, with their set list narrowed to only the
+  // times that actually fall inside tonight's window (drops a leftover
+  // adjacent-night time so sort order and the displayed time are correct).
+  const onBoard = valid
+    .filter((event) => inBoardWindow(event, today))
+    .map((event) => ({ ...event, sets: boardSets(event, today) }))
+    .sort((a, b) => (a.sets[0] ?? "99:99").localeCompare(b.sets[0] ?? "99:99"));
 
-  // The screen promises today's complete board: every set from 4am today
-  // through 4am tomorrow, including tonight's after-midnight tail. Anything
-  // beyond that window is a small convenience preview, not shown on the
-  // board itself.
-  const boardEvents = sorted.filter((event) => inBoardWindow(event, today));
-  const future = sorted
+  // A small forward-looking preview of what's ahead, beyond tonight's board.
+  const future = valid
     .filter((event) => event.date > today && !inBoardWindow(event, today))
+    .sort((a, b) => `${a.date} ${firstSetTime(a)}`.localeCompare(`${b.date} ${firstSetTime(b)}`))
     .slice(0, MAX_FUTURE_EVENTS);
 
   const events = [
-    ...boardEvents.map((event) => ({ ...event, on_board: true })),
+    ...onBoard.map((event) => ({ ...event, on_board: true })),
     ...future.map((event) => ({ ...event, on_board: false }))
   ].map((event) => {
     const club = clubById.get(event.clubId);
