@@ -1,0 +1,33 @@
+<div class="layout layout--col" style="height: 100%;">
+{% assign shown_count = 0 %}
+{% for event in events %}{% if event.on_board %}{% assign shown_count = shown_count | plus: 1 %}{% endif %}{% endfor %}
+
+<div class="flex flex--row flex--align-center" style="flex: none; margin-bottom: 4px; justify-content: space-between; width: 100%;">
+  <span class="title title--small">JazzLineup.com NYC</span>
+  <span class="label label--small label--inverted">{{ shown_count }}</span>
+</div>
+
+{% if shown_count > 0 %}
+<div class="flex flex--col" style="flex: 1 1 auto; min-height: 0; overflow: hidden; gap: 2px;">
+  {% assign n = 0 %}
+  {% for event in events %}
+    {% if event.on_board %}
+      {% if n < 5 %}
+      <div class="flex flex--row flex--align-center" style="min-width: 0; gap: 4px;">
+        <span class="label label--small" style="width: 32px; flex: none;">{{ event.sets.first | default: "TBA" }}</span>
+        <span class="description description--small" style="font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 1 1 auto;">{{ event.title }}</span>
+      </div>
+      {% endif %}
+      {% assign n = n | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+  {% if shown_count > 5 %}
+  <span class="label label--small">+{{ shown_count | minus: 5 }} more</span>
+  {% endif %}
+</div>
+{% else %}
+<div class="center-center" style="flex: 1 1 auto;">
+  <div class="description description--small">No sets tonight</div>
+</div>
+{% endif %}
+</div>
