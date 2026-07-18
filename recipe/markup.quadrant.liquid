@@ -20,10 +20,7 @@ move class-less values out of inline styles. {% endcomment %}
 </style>
 
 <div class="flex flex--row flex--align-center flex--between flex-none mb--small w--full">
-  <div class="flex flex--row flex--align-center gap--small">
-    <span class="title title--small">JazzLineup.com NYC</span>
-    <span class="description description--small">{{ today | date: "%A, %B %-d" }}</span>
-  </div>
+  <span class="title title--small">{{ today | date: "%A, %B %-d" }}</span>
   <span class="label label--small label--inverted">{{ shown_count }}</span>
 </div>
 
