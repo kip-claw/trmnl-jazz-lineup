@@ -23,9 +23,8 @@ The v1 contract is documented in [`schema/nyc-feed.schema.json`](schema/nyc-feed
 ## TRMNL setup
 
 1. Import [`recipe/settings.yml`](recipe/settings.yml) into a TRMNL **Polling** private plugin, then paste [`recipe/markup.liquid`](recipe/markup.liquid) into the markup editor.
-2. Optionally choose one or more **Favorite venues**; leave it blank for the complete citywide schedule.
-3. Use the standard `full` layout and preview on the 7.5-inch device.
-4. Test a private copy before publishing a Recipe. Public Recipes are reviewed by TRMNL; users may install or fork them.
+2. Use the standard `full` layout and preview on the 7.5-inch device.
+3. Test a private copy before publishing a Recipe. Public Recipes are reviewed by TRMNL; users may install or fork them.
 
 The finished Recipe will credit Jazz Lineup in the footer and link here for source, privacy, and maintenance information.
 
