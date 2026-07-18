@@ -7,3 +7,12 @@ polling_headers: ""
 polling_verb: GET
 no_screen_padding: "no"
 dark_mode: "no"
+custom_fields:
+  - keyname: author_bio
+    name: About this plugin
+    field_type: author_bio
+    description: >-
+      Tonight's New York City jazz shows
+    github_url: https://github.com/kip-claw/trmnl-jazz-lineup
+    learn_more_url: https://jazzlineup.com/
+    category: entertainment
