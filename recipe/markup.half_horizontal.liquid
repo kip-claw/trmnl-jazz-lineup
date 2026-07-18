@@ -7,7 +7,10 @@
 {% if hh_rows < 1 %}{% assign hh_rows = 1 %}{% endif %}
 
 <div class="flex flex--row flex--align-center flex--between flex-none mb--small">
-  <span class="title title--small">JazzLineup.com NYC</span>
+  <div class="flex flex--row flex--align-center gap--small">
+    <span class="title title--small">JazzLineup.com NYC</span>
+    <span class="description description--small">{{ today | date: "%A, %B %-d" }}</span>
+  </div>
   <span class="label label--small label--inverted">{{ shown_count }} SHOWS</span>
 </div>
 

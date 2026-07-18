@@ -3,7 +3,10 @@
 {% for event in events %}{% if event.on_board %}{% assign shown_count = shown_count | plus: 1 %}{% endif %}{% endfor %}
 
 <div class="flex flex--row flex--align-center flex--between flex-none mb--small">
-  <span class="title title--small">JazzLineup.com NYC</span>
+  <div class="flex flex--row flex--align-center gap--small">
+    <span class="title title--small">JazzLineup.com NYC</span>
+    <span class="description description--small">{{ today | date: "%A, %B %-d" }}</span>
+  </div>
   <span class="label label--small label--inverted">{{ shown_count }}</span>
 </div>
 
