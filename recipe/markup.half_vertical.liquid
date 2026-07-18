@@ -2,6 +2,21 @@
 {% assign shown_count = 0 %}
 {% for event in events %}{% if event.on_board %}{% assign shown_count = shown_count | plus: 1 %}{% endif %}{% endfor %}
 
+{% comment %} Single-column scoped grid (like the full board) rather than a flex
+column, whose stretch utilities bled the rows past the left edge. Grid items
+stretch cleanly and stay left-aligned. {% endcomment %}
+<style>
+  .jazz-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 6px;
+    align-content: start;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+  }
+</style>
+
 <div class="flex flex--row flex--align-center flex--between flex-none mb--small" style="width: 100%;">
   <div class="flex flex--row flex--align-center gap--small">
     <span class="title title--small">JazzLineup.com NYC</span>
@@ -11,7 +26,7 @@
 </div>
 
 {% if shown_count > 0 %}
-<div class="flex flex--col flex--stretch-x grow gap--small" style="min-height: 0; overflow: hidden;">
+<div class="jazz-list">
   {% assign n = 0 %}
   {% for event in events %}
     {% if event.on_board %}
