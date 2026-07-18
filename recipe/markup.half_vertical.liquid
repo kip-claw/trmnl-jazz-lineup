@@ -8,6 +8,7 @@ move class-less values out of inline styles. {% endcomment %}
   .jazz-min-w-0 { min-width: 0; }
   .jazz-trunc { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .jazz-time { width: 32px; }
+  .jazz-bold { font-weight: 700; }
   .jazz-list {
     display: grid;
     grid-template-columns: 1fr;
@@ -35,7 +36,7 @@ move class-less values out of inline styles. {% endcomment %}
       <div class="flex flex--row flex--align-center gap--xsmall jazz-min-w-0">
         <span class="label label--small flex-none jazz-time">{{ event.sets.first | default: "TBA" }}</span>
         <div class="grow jazz-min-w-0">
-          <div class="description description--small text--bold jazz-trunc">{{ event.title }}</div>
+          <div class="description description--small jazz-bold jazz-trunc">{{ event.title }}</div>
           <div class="description description--small jazz-trunc">{{ event.venue }}</div>
         </div>
       </div>

@@ -12,6 +12,7 @@ inline styles. {% endcomment %}
   .jazz-min-w-0 { min-width: 0; }
   .jazz-trunc { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .jazz-time { width: 32px; }
+  .jazz-bold { font-weight: 700; }
   .jazz-grid-hh {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -40,7 +41,7 @@ inline styles. {% endcomment %}
       {% if n < 24 %}
       <div class="flex flex--row flex--align-center gap--xsmall jazz-min-w-0">
         <span class="label label--small flex-none jazz-time">{{ event.sets.first | default: "TBA" }}</span>
-        <span class="description description--small text--bold grow jazz-trunc">{{ event.title }}</span>
+        <span class="description description--small jazz-bold grow jazz-trunc">{{ event.title }}</span>
       </div>
       {% endif %}
       {% assign n = n | plus: 1 %}
