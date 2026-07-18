@@ -13,6 +13,7 @@ truncation) out of inline styles. {% endcomment %}
   .jazz-trunc { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .jazz-time { width: 32px; }
   .jazz-bold { font-weight: 700; }
+  .jazz-body { margin-top: 12px; }
   .jazz-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -29,13 +30,13 @@ truncation) out of inline styles. {% endcomment %}
   }
 </style>
 
-<div class="title_bar mb--small">
+<div class="title_bar">
   <img class="image" src="https://raw.githubusercontent.com/kip-claw/trmnl-jazz-lineup/main/docs/jazzlineup-favicon-eink.png" />
   <span class="title">JazzLineup.com NYC</span>
   <span class="instance">{{ today | date: "%A, %B %-d" }} · {{ shown_count }} shows</span>
 </div>
 
-<div class="layout layout--col">
+<div class="layout layout--col jazz-body">
 {% if shown_count > 0 %}
 <div class="jazz-grid">
   {% for event in events %}
