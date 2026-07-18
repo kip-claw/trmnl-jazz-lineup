@@ -1,50 +1,40 @@
-<div class="layout layout--col gap--space-between">
-  {% assign favorite_venues = trmnl.plugin_settings.custom_fields_values.favorite_venues %}
-  {% assign now_epoch = "now" | date: "%s" | plus: 0 %}
-  {% assign shown_count = 0 %}
+<div class="layout layout--col" style="height: 100%;">
+{% assign shown_count = 0 %}
+{% for event in events %}
+  {% if event.date == today %}
+    {% assign shown_count = shown_count | plus: 1 %}
+  {% endif %}
+{% endfor %}
+{% assign row_count = shown_count | divided_by: 4.0 | ceil %}
+
+<div class="flex flex--row flex--align-center" style="flex: none; margin-bottom: 4px; justify-content: space-between; width: 100%;">
+  <div class="flex flex--row flex--align-center gap--small">
+    <span class="title title--small">JAZZ LINEUP NYC</span>
+    <span class="description description--small">{{ today | date: "%A, %B %-d" }}</span>
+  </div>
+  <span class="label label--small label--inverted">{{ shown_count }} SHOWS</span>
+</div>
+
+{% if shown_count > 0 %}
+<div class="grid" style="grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat({{ row_count }}, 1fr); grid-auto-flow: column; column-gap: 24px; row-gap: 6px; flex: 1 1 auto; min-height: 0;">
   {% for event in events %}
     {% if event.date == today %}
-      {% if favorite_venues == blank or favorite_venues contains event.venue_id %}
-        {% assign shown_count = shown_count | plus: 1 %}
-      {% endif %}
+    <div class="item" style="min-width: 0; display: flex; flex-direction: column; justify-content: center;">
+      <div class="flex flex--row flex--align-center" style="min-width: 0; gap: 4px;">
+        <span class="label label--small" style="width: 32px; flex: none;">{{ event.sets.first | default: "TBA" }}</span>
+        <span class="description description--small" style="font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 1 1 auto;">{{ event.title }}</span>
+      </div>
+      <div class="description description--small" style="padding-left: 36px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ event.venue }}</div>
+    </div>
     {% endif %}
   {% endfor %}
-
-  <div class="flex flex--row flex--align-center gap--small">
-    <span class="title title--small">NYC JAZZ TONIGHT</span>
-    <span class="label label--small label--inverted">{{ shown_count }} SHOWS</span>
-    <span class="description description--small">{{ today | date: "%A, %b %-d" }}</span>
+</div>
+{% else %}
+<div class="center-center" style="flex: 1 1 auto;">
+  <div>
+    <div class="title">No listed sets tonight</div>
+    <div class="description">Check Jazz Lineup for changes.</div>
   </div>
-
-  {% if shown_count > 0 %}
-    <div class="grid grid--cols-4 gap--xsmall" style="grid-auto-flow: row; align-content: start;">
-      {% for event in events %}
-        {% if event.date == today %}
-          {% if favorite_venues == blank or favorite_venues contains event.venue_id %}
-            <div class="item" style="min-width: 0; padding-bottom: 3px;">
-              <div class="flex flex--row flex--align-center gap--xsmall">
-                <span class="label label--small" style="width: 38px; flex: none;">{{ event.sets.first | default: "TBA" }}</span>
-                <span class="description description--small" style="font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ event.title }}</span>
-              </div>
-              <div class="description description--small" style="padding-left: 42px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ event.venue }}</div>
-            </div>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-    </div>
-  {% else %}
-    <div class="center-center" style="height: 260px">
-      <div>
-        {% if favorite_venues == blank %}
-          <div class="title">No listed sets tonight</div>
-          <div class="description">Check Jazz Lineup for changes.</div>
-        {% else %}
-          <div class="title">No favorite venues tonight</div>
-          <div class="description">Edit favorites to see the full citywide listing.</div>
-        {% endif %}
-      </div>
-    </div>
-  {% endif %}
-
-  <div class="description description--small">{% if favorite_venues == blank %}All venues{% else %}Favorite venues{% endif %} · Data: Jazz Lineup · Updated {{ generated_at | date: "%l:%M %p" }}{% if now_epoch > stale_after_epoch %} · DATA MAY BE STALE{% endif %}</div>
+</div>
+{% endif %}
 </div>
