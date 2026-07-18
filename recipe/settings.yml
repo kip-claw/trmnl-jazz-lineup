@@ -3,7 +3,7 @@ name: Jazz Lineup NYC
 strategy: polling
 refresh_interval: 15
 polling_url: https://kip-claw.github.io/trmnl-jazz-lineup/nyc.json
-polling_headers: ''
+polling_headers: ""
 polling_verb: GET
-no_screen_padding: 'no'
-dark_mode: 'no'
+no_screen_padding: "no"
+dark_mode: "no"

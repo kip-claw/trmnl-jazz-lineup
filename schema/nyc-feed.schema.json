@@ -5,7 +5,16 @@
   "description": "A small, attributed feed for the current NYC jazz schedule and a limited upcoming preview.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "generated_at", "stale_after_epoch", "source", "city", "timezone", "today", "events"],
+  "required": [
+    "schema_version",
+    "generated_at",
+    "stale_after_epoch",
+    "source",
+    "city",
+    "timezone",
+    "today",
+    "events"
+  ],
   "properties": {
     "schema_version": { "const": 1 },
     "generated_at": { "type": "string", "format": "date-time" },
@@ -34,11 +43,24 @@
     "event": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["title", "date", "sets", "venue_id", "venue", "neighborhood", "event_url", "price", "on_board"],
+      "required": [
+        "title",
+        "date",
+        "sets",
+        "venue_id",
+        "venue",
+        "neighborhood",
+        "event_url",
+        "price",
+        "on_board"
+      ],
       "properties": {
         "title": { "type": "string", "minLength": 1 },
         "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
-        "sets": { "type": "array", "items": { "type": "string", "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$" } },
+        "sets": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$" }
+        },
         "venue_id": { "type": "string", "minLength": 1 },
         "venue": { "type": "string", "minLength": 1 },
         "neighborhood": { "type": ["string", "null"] },

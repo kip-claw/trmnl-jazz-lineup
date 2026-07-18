@@ -35,9 +35,14 @@ The finished Recipe will credit Jazz Lineup in the footer and link here for sour
 Requires Node.js 20+.
 
 ```bash
+npm install     # install dev tooling (ESLint, Prettier)
+npm run lint    # static analysis
+npm run format  # apply Prettier formatting (format:check to verify only)
 npm test
 npm run collect
 ```
+
+Continuous integration runs `lint`, `format:check`, and `test` on every push and pull request, and again before each scheduled publish.
 
 `npm run collect` writes `public/nyc.json`. The GitHub Actions workflow runs the same collector on a 15-minute cadence and deploys the public directory to GitHub Pages.
 

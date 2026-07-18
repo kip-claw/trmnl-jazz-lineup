@@ -7,11 +7,11 @@ with an ellipsis rather than wrapping into adjacent entries.
 
 ## Current support
 
-| Screen | Status | Notes |
-| --- | --- | --- |
-| 7.5-inch (800×480) | Targeted; pending physical-device capture | Four-column layout is designed for the full current-day feed. |
-| 6-inch | Not yet verified | Install a private fork before relying on it. |
-| 4-inch | Not supported by this Recipe | A separate, deliberately shorter layout is preferable to shrinking this board. |
+| Screen             | Status                                    | Notes                                                                          |
+| ------------------ | ----------------------------------------- | ------------------------------------------------------------------------------ |
+| 7.5-inch (800×480) | Targeted; pending physical-device capture | Four-column layout is designed for the full current-day feed.                  |
+| 6-inch             | Not yet verified                          | Install a private fork before relying on it.                                   |
+| 4-inch             | Not supported by this Recipe              | A separate, deliberately shorter layout is preferable to shrinking this board. |
 
 ## Before publishing a Recipe revision
 

@@ -75,11 +75,26 @@ export function buildFeed(source, now = new Date()) {
     throw new Error("Jazz Lineup response does not have clubs and events arrays");
   }
 
-  if (source.clubs.length > 100 || source.events.length > 10_000) throw new Error("Jazz Lineup response exceeds expected limits");
-  const clubById = new Map(source.clubs.filter((club) => typeof club.id === "string" && typeof club.name === "string").map((club) => [club.id, club]));
+  if (source.clubs.length > 100 || source.events.length > 10_000)
+    throw new Error("Jazz Lineup response exceeds expected limits");
+  const clubById = new Map(
+    source.clubs
+      .filter((club) => typeof club.id === "string" && typeof club.name === "string")
+      .map((club) => [club.id, club])
+  );
   const today = boardDay(now);
 
-  const valid = source.events.filter((event) => /^\d{4}-\d{2}-\d{2}$/.test(event.date ?? "") && typeof event.title === "string" && event.title.trim() && clubById.has(event.clubId) && /^https:\/\//.test(event.url ?? "") && (event.sets == null || (Array.isArray(event.sets) && event.sets.every((set) => /^([01]\d|2[0-3]):[0-5]\d$/.test(set)))));
+  const valid = source.events.filter(
+    (event) =>
+      /^\d{4}-\d{2}-\d{2}$/.test(event.date ?? "") &&
+      typeof event.title === "string" &&
+      event.title.trim() &&
+      clubById.has(event.clubId) &&
+      /^https:\/\//.test(event.url ?? "") &&
+      (event.sets == null ||
+        (Array.isArray(event.sets) &&
+          event.sets.every((set) => /^([01]\d|2[0-3]):[0-5]\d$/.test(set))))
+  );
 
   // Events on tonight's board, with their set list narrowed to only the
   // times that actually fall inside tonight's window (drops a leftover
@@ -135,11 +150,19 @@ export function buildFeed(source, now = new Date()) {
 export async function collect({ fetchImpl = fetch, now = new Date(), outputPath } = {}) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-  const response = await fetchImpl(SOURCE_URL, { headers: { "Accept": "application/json", "User-Agent": "trmnl-jazz-lineup/0.1 (+https://github.com/kip-claw/trmnl-jazz-lineup)" }, signal: controller.signal });
+  const response = await fetchImpl(SOURCE_URL, {
+    headers: {
+      Accept: "application/json",
+      "User-Agent": "trmnl-jazz-lineup/0.1 (+https://github.com/kip-claw/trmnl-jazz-lineup)"
+    },
+    signal: controller.signal
+  });
   clearTimeout(timeout);
   if (!response.ok) throw new Error(`Jazz Lineup responded with HTTP ${response.status}`);
-  if (!response.headers.get("content-type")?.includes("application/json")) throw new Error("Jazz Lineup response is not JSON");
-  if (Number(response.headers.get("content-length") || 0) > MAX_RESPONSE_BYTES) throw new Error("Jazz Lineup response is too large");
+  if (!response.headers.get("content-type")?.includes("application/json"))
+    throw new Error("Jazz Lineup response is not JSON");
+  if (Number(response.headers.get("content-length") || 0) > MAX_RESPONSE_BYTES)
+    throw new Error("Jazz Lineup response is too large");
   const feed = buildFeed(await response.json(), now);
   if (outputPath) {
     await mkdir(path.dirname(outputPath), { recursive: true });
