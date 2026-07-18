@@ -1,4 +1,3 @@
-<div class="layout layout--col">
 {% assign shown_count = 0 %}
 {% for event in events %}{% if event.on_board %}{% assign shown_count = shown_count | plus: 1 %}{% endif %}{% endfor %}
 
@@ -20,11 +19,13 @@ move class-less values out of inline styles. {% endcomment %}
   }
 </style>
 
-<div class="flex flex--row flex--align-center flex--between flex-none mb--small w--full">
-  <span class="title title--small">{{ today | date: "%A, %B %-d" }}</span>
-  <span class="label label--small label--inverted">{{ shown_count }}</span>
+<div class="title_bar">
+  <img class="image" src="https://raw.githubusercontent.com/kip-claw/trmnl-jazz-lineup/main/docs/jazzlineup-favicon-eink.png" />
+  <span class="title">JazzLineup.com NYC</span>
+  <span class="instance">{{ today | date: "%b %-d" }} · {{ shown_count }}</span>
 </div>
 
+<div class="layout layout--col">
 {% if shown_count > 0 %}
 <div class="jazz-list">
   {% assign n = 0 %}
@@ -54,10 +55,4 @@ move class-less values out of inline styles. {% endcomment %}
   </div>
 </div>
 {% endif %}
-</div>
-
-<div class="title_bar">
-  <img class="image" src="https://raw.githubusercontent.com/kip-claw/trmnl-jazz-lineup/main/docs/jazzlineup-favicon-eink.png" />
-  <span class="title">JazzLineup.com NYC</span>
-  <span class="instance">{{ trmnl.plugin_settings.instance_name }}</span>
 </div>

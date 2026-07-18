@@ -1,4 +1,3 @@
-<div class="layout layout--col">
 {% assign shown_count = 0 %}
 {% for event in events %}{% if event.on_board %}{% assign shown_count = shown_count | plus: 1 %}{% endif %}{% endfor %}
 {% assign row_count = shown_count | divided_by: 4.0 | ceil %}
@@ -7,8 +6,8 @@
 {% comment %} Column-major grid: 4 columns in landscape, 2 in portrait. Framework
 grid--cols-* is row-major and would scramble the chronological down-each-column
 order, so the grid template is scoped here and keyed off TRMNL's .screen--portrait
-class. The utility classes below move the remaining class-less values (fixed time
-column, flex truncation) out of inline styles, per Chef's guidance. {% endcomment %}
+class. Utility classes move the class-less values (fixed time column, flex
+truncation) out of inline styles. {% endcomment %}
 <style>
   .jazz-min-w-0 { min-width: 0; }
   .jazz-trunc { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -29,11 +28,13 @@ column, flex truncation) out of inline styles, per Chef's guidance. {% endcommen
   }
 </style>
 
-<div class="flex flex--row flex--align-center flex--between flex-none mb--small w--full">
-  <span class="title title--small">{{ today | date: "%A, %B %-d" }}</span>
-  <span class="label label--small label--inverted">{{ shown_count }} SHOWS</span>
+<div class="title_bar">
+  <img class="image" src="https://raw.githubusercontent.com/kip-claw/trmnl-jazz-lineup/main/docs/jazzlineup-favicon-eink.png" />
+  <span class="title">JazzLineup.com NYC</span>
+  <span class="instance">{{ today | date: "%A, %B %-d" }} · {{ shown_count }} shows</span>
 </div>
 
+<div class="layout layout--col">
 {% if shown_count > 0 %}
 <div class="jazz-grid">
   {% for event in events %}
@@ -56,10 +57,4 @@ column, flex truncation) out of inline styles, per Chef's guidance. {% endcommen
   </div>
 </div>
 {% endif %}
-</div>
-
-<div class="title_bar">
-  <img class="image" src="https://raw.githubusercontent.com/kip-claw/trmnl-jazz-lineup/main/docs/jazzlineup-favicon-eink.png" />
-  <span class="title">JazzLineup.com NYC</span>
-  <span class="instance">{{ trmnl.plugin_settings.instance_name }}</span>
 </div>
