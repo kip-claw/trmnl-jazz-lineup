@@ -1,16 +1,14 @@
 <div class="layout layout--col" style="height: 100%;">
 {% assign shown_count = 0 %}
-{% for event in events %}
-  {% if event.on_board %}
-    {% assign shown_count = shown_count | plus: 1 %}
-  {% endif %}
-{% endfor %}
+{% for event in events %}{% if event.on_board %}{% assign shown_count = shown_count | plus: 1 %}{% endif %}{% endfor %}
 {% assign row_count = shown_count | divided_by: 4.0 | ceil %}
 {% assign row_count_portrait = shown_count | divided_by: 2.0 | ceil %}
 
 {% comment %} Column-major grid: 4 columns in landscape, 2 in portrait. Framework
 grid--cols-* is row-major and would scramble the chronological down-each-column
-order, so the layout is scoped here and keyed off TRMNL's .screen--portrait class. {% endcomment %}
+order, so the grid template is scoped here and keyed off TRMNL's .screen--portrait
+class. Remaining inline styles are limited to values with no Framework class
+(the dynamic grid template, the fixed time-column width, and bold weight). {% endcomment %}
 <style>
   .jazz-grid {
     display: grid;
@@ -28,7 +26,7 @@ order, so the layout is scoped here and keyed off TRMNL's .screen--portrait clas
   }
 </style>
 
-<div class="flex flex--row flex--align-center" style="flex: none; margin-bottom: 4px; justify-content: space-between; width: 100%;">
+<div class="flex flex--row flex--align-center flex--between flex-none mb--small">
   <div class="flex flex--row flex--align-center gap--small">
     <span class="title title--small">JazzLineup.com NYC</span>
     <span class="description description--small">{{ today | date: "%A, %B %-d" }}</span>
@@ -40,18 +38,18 @@ order, so the layout is scoped here and keyed off TRMNL's .screen--portrait clas
 <div class="jazz-grid">
   {% for event in events %}
     {% if event.on_board %}
-    <div class="item" style="min-width: 0; display: flex; flex-direction: column; justify-content: center;">
-      <div class="flex flex--row flex--align-center" style="min-width: 0; gap: 4px;">
-        <span class="label label--small" style="width: 32px; flex: none;">{{ event.sets.first | default: "TBA" }}</span>
-        <span class="description description--small" style="font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 1 1 auto;">{{ event.title }}</span>
+    <div class="flex flex--row flex--align-center gap--xsmall" style="min-width: 0;">
+      <span class="label label--small flex-none" style="width: 32px;">{{ event.sets.first | default: "TBA" }}</span>
+      <div class="flex flex--col grow" style="min-width: 0;">
+        <span class="description description--small clamp--1" style="font-weight: 700;">{{ event.title }}</span>
+        <span class="description description--small clamp--1">{{ event.venue }}</span>
       </div>
-      <div class="description description--small" style="padding-left: 36px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ event.venue }}</div>
     </div>
     {% endif %}
   {% endfor %}
 </div>
 {% else %}
-<div class="center-center" style="flex: 1 1 auto;">
+<div class="center-center grow">
   <div>
     <div class="title">No listed sets tonight</div>
     <div class="description">Check Jazz Lineup for changes.</div>
