@@ -6,7 +6,7 @@ An open-source, no-account-needed data feed and [TRMNL](https://trmnl.com/) Reci
 
 It fetches Jazz Lineup's public NYC event feed, retains only the fields needed for an e-ink schedule, and publishes a small, documented JSON feed. The accompanying Liquid markup is designed for a TRMNL private plugin / community Recipe and renders every show listed for the current NYC day in chronological, four-column order.
 
-> Data source: [Jazz Lineup](https://jazzlineup.com/). This project is not affiliated with Jazz Lineup or TRMNL.
+> Data source: [Jazz Lineup](https://jazzlineup.com/). For the full NYC calendar — and other cities — visit [jazzlineup.com](https://jazzlineup.com/). This project is not affiliated with Jazz Lineup or TRMNL.
 
 ## Status
 
@@ -22,13 +22,17 @@ It contains a versioned schema, source attribution, freshness timestamps, NYC ve
 
 The v1 contract is documented in [`schema/nyc-feed.schema.json`](schema/nyc-feed.schema.json). The collector validates the feed before every deployment, and a separate GitHub Actions workflow fetches and validates the deployed JSON after GitHub Pages updates.
 
+### Feed stability
+
+The upstream feed is **not a formal API**. Jazz Lineup periodically adds cities and fields; the existing shape should stay stable but is not guaranteed and may change without notice. The collector and validator here are written to fail loudly rather than publish a malformed feed, so if the upstream shape shifts, please [open an issue](https://github.com/kip-claw/trmnl-jazz-lineup/issues) and it will be reconciled with the current feed.
+
 ## TRMNL setup
 
 1. Import [`recipe/settings.yml`](recipe/settings.yml) into a TRMNL **Polling** private plugin, then paste [`recipe/markup.liquid`](recipe/markup.liquid) into the markup editor.
 2. Use the standard `full` layout and preview on the 7.5-inch device.
 3. Test a private copy before publishing a Recipe. Public Recipes are reviewed by TRMNL; users may install or fork them.
 
-The finished Recipe will credit Jazz Lineup in the footer and link here for source, privacy, and maintenance information.
+The Recipe credits Jazz Lineup in the display header (`JazzLineup.com NYC`) and links here for source, privacy, and maintenance information.
 
 ## Development
 
@@ -54,6 +58,10 @@ Continuous integration runs `lint`, `format:check`, and `test` on every push and
 - Store no user data, API keys, cookies, analytics identifiers, or event history.
 - Preserve source event links so viewers can verify details at the venue.
 - If Jazz Lineup publishes reuse terms, an API policy, or requests a change, follow it promptly.
+
+## Support Jazz Lineup
+
+Jazz Lineup maintains the underlying listings and generously allows this attributed reuse. If this display is useful to you, consider supporting the source at [ko-fi.com/jazzlineup](https://ko-fi.com/jazzlineup).
 
 ## Contributing
 
