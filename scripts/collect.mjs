@@ -7,6 +7,7 @@ export const MAX_FUTURE_EVENTS = 24;
 export const MAX_RESPONSE_BYTES = 3_000_000;
 export const REQUEST_TIMEOUT_MS = 15_000;
 export const STALE_AFTER_SECONDS = 90 * 60;
+export const NIGHT_CUTOFF = "04:00"; // sets before this belong to the previous night's board
 
 export function nycDate(now = new Date()) {
   return new Intl.DateTimeFormat("en-CA", {
@@ -17,6 +18,35 @@ export function nycDate(now = new Date()) {
   }).format(now);
 }
 
+function nycClock(now = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    hourCycle: "h23",
+    hour: "2-digit",
+    minute: "2-digit"
+  }).formatToParts(now);
+  const hh = parts.find((p) => p.type === "hour").value;
+  const mm = parts.find((p) => p.type === "minute").value;
+  return `${hh}:${mm}`;
+}
+
+function shiftDate(dateStr, deltaDays) {
+  const [y, m, d] = dateStr.split("-").map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d, 12)); // noon UTC avoids DST edge cases
+  dt.setUTCDate(dt.getUTCDate() + deltaDays);
+  return dt.toISOString().slice(0, 10);
+}
+
+export function effectiveToday(now = new Date()) {
+  const calendarToday = nycDate(now);
+  return nycClock(now) < NIGHT_CUTOFF ? shiftDate(calendarToday, -1) : calendarToday;
+}
+
+function nightDate(event) {
+  const firstSet = event.sets?.[0];
+  return firstSet && firstSet < NIGHT_CUTOFF ? shiftDate(event.date, -1) : event.date;
+}
+
 export function buildFeed(source, now = new Date()) {
   if (!source || !Array.isArray(source.clubs) || !Array.isArray(source.events)) {
     throw new Error("Jazz Lineup response does not have clubs and events arrays");
@@ -24,10 +54,16 @@ export function buildFeed(source, now = new Date()) {
 
   if (source.clubs.length > 100 || source.events.length > 10_000) throw new Error("Jazz Lineup response exceeds expected limits");
   const clubById = new Map(source.clubs.filter((club) => typeof club.id === "string" && typeof club.name === "string").map((club) => [club.id, club]));
-  const today = nycDate(now);
-  const upcoming = source.events
-    .filter((event) => event.date >= today && /^\d{4}-\d{2}-\d{2}$/.test(event.date ?? "") && typeof event.title === "string" && event.title.trim() && clubById.has(event.clubId) && /^https:\/\//.test(event.url ?? "") && (event.sets == null || (Array.isArray(event.sets) && event.sets.every((set) => /^([01]\d|2[0-3]):[0-5]\d$/.test(set)))))
+  const today = effectiveToday(now);
+
+  const normalized = source.events
+    .filter((event) => /^\d{4}-\d{2}-\d{2}$/.test(event.date ?? "") && typeof event.title === "string" && event.title.trim() && clubById.has(event.clubId) && /^https:\/\//.test(event.url ?? "") && (event.sets == null || (Array.isArray(event.sets) && event.sets.every((set) => /^([01]\d|2[0-3]):[0-5]\d$/.test(set)))))
+    .map((event) => ({ ...event, date: nightDate(event) }));
+
+  const upcoming = normalized
+    .filter((event) => event.date >= today)
     .sort((a, b) => `${a.date} ${a.sets?.[0] ?? "99:99"}`.localeCompare(`${b.date} ${b.sets?.[0] ?? "99:99"}`));
+
   // The screen promises today's complete listing. Future shows are a small
   // convenience preview, rather than an archive or calendar mirror.
   const events = [
