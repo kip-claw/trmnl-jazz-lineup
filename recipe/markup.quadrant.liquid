@@ -1,19 +1,13 @@
 {% assign shown_count = 0 %}
 {% for event in events %}{% if event.on_board %}{% assign shown_count = shown_count | plus: 1 %}{% endif %}{% endfor %}
 
-<div class="title_bar">
-  <img class="image" src="https://raw.githubusercontent.com/kip-claw/trmnl-jazz-lineup/main/docs/jazzlineup-favicon-eink.png" />
-  <span class="title">JazzLineup.com NYC</span>
-  <span class="instance">{{ today | date: "%b %-d" }} · {{ shown_count }}</span>
-</div>
-
 <div class="layout layout--col gap--small">
 {% if shown_count > 0 %}
 <div class="columns" data-overflow-max-cols="1" data-overflow-counter="true">
   <div class="column gap--xsmall">
     {% for event in events %}
       {% if event.on_board %}
-        <div class="item flex flex--row flex--align-center gap--xsmall">
+        <div class="item flex flex--row flex--top gap--small">
           <span class="label label--small flex-none">{{ event.sets.first | default: "TBA" }}</span>
           <div class="col grow">
             <span class="description description--small font--bold" data-clamp="1">{{ event.title }}</span>
@@ -26,7 +20,16 @@
 </div>
 {% else %}
 <div class="center-center grow">
-  <div class="description description--small">No listed sets tonight</div>
+  <div>
+    <div class="title title--small">No listed sets tonight</div>
+    <div class="description description--small">Check Jazz Lineup for changes.</div>
+  </div>
 </div>
 {% endif %}
+</div>
+
+<div class="title_bar">
+  <img class="image" src="https://raw.githubusercontent.com/kip-claw/trmnl-jazz-lineup/main/docs/jazzlineup-favicon-eink.png" />
+  <span class="title">JazzLineup.com NYC</span>
+  <span class="instance">{{ today | date: "%b %-d" }} · {{ shown_count }}</span>
 </div>
