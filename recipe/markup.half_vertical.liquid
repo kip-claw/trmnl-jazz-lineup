@@ -13,7 +13,7 @@
   <div class="column gap--xsmall">
     {% for event in events %}
       {% if event.on_board %}
-        <div class="item flex flex--row flex--align-center gap--xsmall">
+        <div class="item flex flex--row flex--top gap--small">
           <span class="label label--small flex-none">{{ event.sets.first | default: "TBA" }}</span>
           <div class="col grow">
             <span class="description description--small font--bold" data-clamp="1">{{ event.title }}</span>
