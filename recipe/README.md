@@ -2,7 +2,7 @@
 
 This folder contains the public, reviewable source for the **NYC Jazz Tonight** Recipe.
 
-The Recipe uses TRMNL's Polling strategy with the deployed `nyc.json` feed. It has no credentials, installation webhook, or user data. Its sole optional custom field is a multi-select of favorite venues: leave it blank for every listed NYC show today, or select one or more venues to filter the board. The Liquid template renders matching events in chronological, four-column order. Each compact entry shows its first set time, artist/group, and venue.
+The Recipe uses TRMNL's Polling strategy with the deployed `nyc.json` feed. It has no credentials, installation webhook, or user data. Its sole optional custom field is a multi-select of favorite venues: leave it blank for every listed NYC show today, or select one or more venues to filter the board. The Liquid template uses TRMNL's framework-managed columns and overflow counter, showing up to four columns in landscape and two in portrait. Each compact entry shows its first set time, artist/group, and venue.
 
 ## Install a private copy
 

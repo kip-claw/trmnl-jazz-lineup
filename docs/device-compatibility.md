@@ -3,9 +3,10 @@
 The Recipe targets TRMNL's standard **full** layout. It intentionally favors a
 complete, dense daily schedule over large type, with artist and venue names
 clipped with an ellipsis rather than wrapping into adjacent entries. The
-column-major grid shows **four columns in landscape** and reflows to **two
-columns in portrait** (TRMNL X), keyed off the framework's `.screen--portrait`
-class so the chronological down-each-column order is preserved in both.
+framework-managed columns show **up to four columns in landscape** and reflow
+to **two columns in portrait** (TRMNL X). The framework owns the overflow
+behavior, including its “and N more” counter when the feed is too large for
+the available display.
 
 ## Current support
 
@@ -19,7 +20,7 @@ class so the chronological down-each-column order is preserved in both.
 
 1. Import `recipe/settings.yml` into a private Polling plugin.
 2. Paste `recipe/markup.liquid` into the markup editor and select the `full` layout.
-3. Check an ordinary day and a high-volume day; confirm that the last listing, footer, and stale notice remain visible. Preview both landscape (TRMNL OG and X) and portrait (TRMNL X); confirm the grid shows four columns in landscape and two in portrait.
+3. Check an ordinary day and a high-volume day; confirm that the last listing, footer, and stale notice remain visible. Preview both landscape (TRMNL OG and X) and portrait (TRMNL X); confirm that the framework-managed columns reflow as expected and that the overflow counter is legible.
 4. Capture a non-personal 800×480 preview and add it to this repository before submitting or materially changing the public Recipe.
 
 ![Jazz Lineup NYC preview](https://raw.githubusercontent.com/kip-claw/trmnl-jazz-lineup/refs/heads/main/docs/nyc-jazz-lineup-device.jpg)

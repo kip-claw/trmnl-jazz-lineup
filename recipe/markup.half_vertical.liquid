@@ -1,53 +1,28 @@
 {% assign shown_count = 0 %}
 {% for event in events %}{% if event.on_board %}{% assign shown_count = shown_count | plus: 1 %}{% endif %}{% endfor %}
 
-{% comment %} Single-column scoped grid (like the full board) rather than a flex
-column, whose stretch utilities bled the rows past the left edge. Utility classes
-move class-less values out of inline styles. {% endcomment %}
-<style>
-  .jazz-min-w-0 { min-width: 0; }
-  .jazz-trunc { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .jazz-time { width: 32px; }
-  .jazz-bold { font-weight: 700; }
-  .jazz-body { margin-top: 4px; }
-  .jazz-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 6px;
-    align-content: start;
-    flex: 1 1 auto;
-    min-height: 0;
-    overflow: hidden;
-  }
-</style>
-
 <div class="title_bar">
   <img class="image" src="https://raw.githubusercontent.com/kip-claw/trmnl-jazz-lineup/main/docs/jazzlineup-favicon-eink.png" />
   <span class="title">JazzLineup.com NYC</span>
   <span class="instance">{{ today | date: "%b %-d" }} · {{ shown_count }}</span>
 </div>
 
-<div class="layout layout--col jazz-body">
+<div class="layout layout--col gap--small">
 {% if shown_count > 0 %}
-<div class="jazz-list">
-  {% assign n = 0 %}
-  {% for event in events %}
-    {% if event.on_board %}
-      {% if n < 10 %}
-      <div class="flex flex--row flex--align-center gap--xsmall jazz-min-w-0">
-        <span class="label label--small flex-none jazz-time">{{ event.sets.first | default: "TBA" }}</span>
-        <div class="grow jazz-min-w-0">
-          <div class="description description--small jazz-bold jazz-trunc">{{ event.title }}</div>
-          <div class="description description--small jazz-trunc">{{ event.venue }}</div>
+<div class="columns" data-overflow-max-cols="1" data-overflow-counter="true">
+  <div class="column gap--xsmall">
+    {% for event in events %}
+      {% if event.on_board %}
+        <div class="item flex flex--row flex--align-center gap--xsmall">
+          <span class="label label--small flex-none">{{ event.sets.first | default: "TBA" }}</span>
+          <div class="col grow">
+            <span class="description description--small font--bold" data-clamp="1">{{ event.title }}</span>
+            <span class="description description--small" data-clamp="1">{{ event.venue }}</span>
+          </div>
         </div>
-      </div>
       {% endif %}
-      {% assign n = n | plus: 1 %}
-    {% endif %}
-  {% endfor %}
-  {% if shown_count > 10 %}
-  <span class="label label--small">+{{ shown_count | minus: 10 }} more at JazzLineup.com</span>
-  {% endif %}
+    {% endfor %}
+  </div>
 </div>
 {% else %}
 <div class="center-center grow">
