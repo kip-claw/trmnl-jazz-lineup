@@ -7,15 +7,21 @@
   <div class="column gap--xsmall">
     {% for event in events %}
       {% if event.on_board %}
-        <div class="item flex flex--row flex--top gap--small">
-          <div class="meta">
-            <span class="label label--small">{{ event.sets.first | default: "TBA" }}</span>
-          </div>
-          <div class="content">
-            <span class="description description--small text--bold" data-clamp="1">{{ event.title }}</span>
-            <span class="description description--small" data-clamp="1">{{ event.venue }}</span>
-          </div>
-        </div>
+            <div class="item flex gap--none flex--top">
+              <div class="meta w--[45px]">
+                <span class="label label--small">
+                  {{ event.sets.first | default: "TBA" }}
+                </span>
+              </div>
+              <div class="content">
+                <span class="description description--small font--bold" data-clamp="1">
+                  {{ event.title }}
+                </span>
+                <span class="description description--small" data-clamp="1">
+                  {{ event.venue }}
+                </span>
+              </div>
+            </div>
       {% endif %}
     {% endfor %}
   </div>
