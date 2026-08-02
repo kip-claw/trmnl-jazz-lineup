@@ -3,19 +3,25 @@
 
 <div class="layout layout--col gap--small">
 {% if shown_count > 0 %}
-<div class="columns" data-overflow-max-cols="4" data-overflow-counter="true">
+<div class="columns" data-overflow-max-cols="2" data-overflow-counter="true">
   <div class="column gap--xsmall">
     {% for event in events %}
       {% if event.on_board %}
-        <div class="item flex flex--row flex--top gap--small">
-          <div class="meta">
-            <span class="label label--small">{{ event.sets.first | default: "TBA" }}</span>
-          </div>
-          <div class="content">
-            <span class="description description--small text--bold" data-clamp="1">{{ event.title }}</span>
-            <span class="description description--small" data-clamp="1">{{ event.venue }}</span>
-          </div>
-        </div>
+            <div class="item flex gap--none flex--top">
+              <div class="meta w--[45px]">
+                <span class="label label--small">
+                  {{ event.sets.first | default: "TBA" }}
+                </span>
+              </div>
+              <div class="content">
+                <span class="description description--small font--bold" data-clamp="1">
+                  {{ event.title }}
+                </span>
+                <span class="description description--small" data-clamp="1">
+                  {{ event.venue }}
+                </span>
+              </div>
+            </div>
       {% endif %}
     {% endfor %}
   </div>
@@ -33,5 +39,5 @@
 <div class="title_bar">
   <img class="image image-dither" src="https://raw.githubusercontent.com/kip-claw/trmnl-jazz-lineup/main/docs/jazzlineup-favicon-eink.png" />
   <span class="title">JazzLineup.com NYC</span>
-  <span class="instance">{{ today | date: "%A, %B %-d" }}</span>
+  <span class="instance">{{ today | date: "%b %-d" }}</span>
 </div>
