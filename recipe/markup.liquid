@@ -8,9 +8,11 @@
   {% for event in events %}
     {% if event.on_board %}
     <div class="item flex flex--row flex--top gap--small">
-      <span class="label label--small flex-none">{{ event.sets.first | default: "TBA" }}</span>
-      <div class="col grow">
-        <span class="description description--small font--bold" data-clamp="1">{{ event.title }}</span>
+      <div class="meta">
+        <span class="label label--small">{{ event.sets.first | default: "TBA" }}</span>
+      </div>
+      <div class="content">
+        <span class="description description--small text--bold" data-clamp="1">{{ event.title }}</span>
         <span class="description description--small" data-clamp="1">{{ event.venue }}</span>
       </div>
     </div>
@@ -19,7 +21,7 @@
   </div>
 </div>
 {% else %}
-<div class="center-center grow">
+<div class="layout layout--center layout--center-x layout--center-y grow">
   <div>
     <div class="title title--small">No listed sets tonight</div>
     <div class="description description--small">Check Jazz Lineup for changes.</div>
