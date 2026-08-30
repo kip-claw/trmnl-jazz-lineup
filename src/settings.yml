@@ -34,7 +34,7 @@ custom_fields:
 - keyname: author_bio
   name: About this plugin
   field_type: author_bio
-  description: Tonight's New York City jazz shows
+  description: "Tonight's New York City jazz shows"
   github_url: https://github.com/kip-claw/trmnl-jazz-lineup
   learn_more_url: https://jazzlineup.com/
   category: entertainment
